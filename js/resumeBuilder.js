@@ -23,14 +23,14 @@ var work = {
         },
         {
             "employer": "Self-employed",
-            "title": "Freelance WordPress Developer",
+            "title": "Freelance Web Developer",
             "location": "Augusta, GA",
             "dates": "February 2015 - October 2015",
             "description": "Building and maintaining WordPress websites for businesses and organizations"
         },
         {
             "employer": "Silver Cittern Web Development, LLC",
-            "title": "Owner and WordPress Developer",
+            "title": "Owner and Web Developer",
             "location": "Augusta, Ga",
             "dates": "October 2015 - Present",
             "description": "Own and operate business and build/maintain WordPress websites for businesses and organizations."
@@ -38,6 +38,40 @@ var work = {
     ]
 }
 
+var projects = {
+    "projects": [
+        {
+            "title": "Mahmudah Institute of Wellness and Mindful Living Website",
+            "dates": "Live March 2015, Maintained March 2015 - Present",
+            "description": "Website for nonprofit organization built using Genesis Framework on WordPress. Customized Outreach Pro Genesis child theme. www.mahmudahinstitute.org",
+            "images": []
+        },
+        {
+            "title": "Augusta Retina Consultants Website",
+            "dates": "Live May 2015, Maintained May 2015 - Present",
+            "description": "Website for ophthalmologist's practice built using Genesis Framework on WordPress. Customized Executive Pro Genesis child theme. www.augustaretina.com",
+            "images": []
+        },
+        {
+            "title": "Timothy J. Moore Portfolio Website",
+            "dates": "Live October 2015, Maintained October 2015 - Present",
+            "description": "Portfolio website and contact for Silver Cittern Web Development built using Genesis Framework on WordPress. Customized Modern Portfolio Pro Genesis child theme. www.timothymoore.me",
+            "images": []
+        },
+        {
+            "title": "Horizon Eye Center Website",
+            "dates": "Live November 2015",
+            "description": "Website for ophthalmologist practice built using Genesis Framework on WordPress. Customized Altitude Pro Genesis child theme. wwww.horizoneyecenter.com",
+            "images": []
+        },
+        {
+            "title": "Portfolio - Udacity Front-End Web Developer Nanodegree",
+            "dates": "October 2015",
+            "description": "Built and customized style of portfolio site from mockup",
+            "images": []
+        }
+    ]
+}
 
 var education = {
     "schools": [

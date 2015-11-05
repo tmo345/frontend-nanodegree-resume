@@ -82,7 +82,8 @@ var bio = {
         "location": "Augusta, GA",
         "github": "tmo345"
     },
-    "skills": ["html", "css", "javascript", "jquery", "php", "WordPress", "Genesis Framework"]
+    "skills": ["html", "css", "javascript", "jquery", "php", "WordPress", "Genesis Framework"],
+    "image": "images/Timothy_Moore.jpg"
 }
 
 var education = {
@@ -141,21 +142,23 @@ var inName = function() {
     return nameArray.join(' ');
 };
 
-// Header population
-$('#header').append(HTMLheaderName.replace('%data%', bio.name));
-$('#header').append(HTMLheaderRole.replace('%data%', bio.role));
+
 
 bio.displayBio = function() {
+    // Header population
+    $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
+    $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
 
-}
-
-// Skills population
-if (bio.skills.length > 0) {
-    $('#header').append(HTMLskillsStart);
-    for (var x = 0; x < bio.skills.length; x++) {
-        $('#skills').append(HTMLskills.replace('%data%', bio.skills[x]));
+    for (var contact in bio.contacts) {
+        $('#topContacts').append(HTMLcontactGeneric.replace('%contact%', contact).replace('%data%', bio.contacts[contact]));
     }
+    $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+    $('#header').append(HTMLbioPic.replace('%data%', bio.image));
+
 }
+
+
+
 
 // Work population
 work.displayWork = function() {
@@ -185,9 +188,17 @@ projects.display = function() {
     });
 };
 
+bio.displayBio();
 work.displayWork();
 projects.display();
 
+// Skills population
+if (bio.skills.length > 0) {
+    $('#header').append(HTMLskillsStart);
+    for (var x = 0; x < bio.skills.length; x++) {
+        $('#skills').append(HTMLskills.replace('%data%', bio.skills[x]));
+    }
+}
 
 $('#mapDiv').append(googleMap);
 

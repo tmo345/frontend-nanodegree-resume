@@ -56,25 +56,25 @@ var projects = {
             "title": "Timothy J. Moore Portfolio Website",
             "dates": "Live October 2015, Maintained October 2015 - Present",
             "description": "Portfolio website and contact for Silver Cittern Web Development built using Genesis Framework on WordPress. Customized Modern Portfolio Pro Genesis child theme. www.timothymoore.me",
-            "images": ["/images/timothymoore-500.jpg"]
+            "images": ["images/timothymoore-500.jpg"]
         },
         {
             "title": "Horizon Eye Center Website",
             "dates": "Live November 2015",
             "description": "Website for ophthalmologist practice built using Genesis Framework on WordPress. Customized Altitude Pro Genesis child theme. wwww.horizoneyecenter.com",
-            "images": ["/images/HEC.jpg"]
+            "images": ["images/HEC.jpg"]
         },
         {
             "title": "Portfolio - Udacity Front-End Web Developer Nanodegree",
             "dates": "October 2015",
             "description": "Built and customized style of portfolio site from mockup",
-            "images": ["/images/Portfolio-P1.jpg"]
+            "images": ["images/Portfolio-P1.jpg"]
         }
     ]
 }
 
 var bio = {
-    "name": "Timothy J. Moore",
+    "name": "Timothy Moore",
     "role": "Web Developer",
     "welcomeMessage": "Welcome to my resume.",
     "contacts": {
@@ -89,13 +89,13 @@ var education = {
     "schools": [
         {
             "school": "University of Georgia",
-            "city": "Athens, Ga",
+            "location": "Athens, Ga",
             "majors": ["Microbiology"],
             "graduationYear": 2005
         },
         {
             "school": "Medical College of Georgia",
-            "city": "Augusta, Ga",
+            "location": "Augusta, Ga",
             "majors": ["Medicine (MD)"],
             "graduationYear": 2009
         }
@@ -134,7 +134,60 @@ var education = {
     ]
 }
 
+var inName = function() {
+    var nameArray = bio.name.trim().split(' ');
+    nameArray[1] = nameArray[1].toUpperCase();
+    nameArray[0] = nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase();
+    return nameArray.join(' ');
+};
+
+// Header population
+$('#header').append(HTMLheaderName.replace('%data%', bio.name));
+$('#header').append(HTMLheaderRole.replace('%data%', bio.role));
+
+bio.displayBio = function() {
+
+}
+
+// Skills population
+if (bio.skills.length > 0) {
+    $('#header').append(HTMLskillsStart);
+    for (var x = 0; x < bio.skills.length; x++) {
+        $('#skills').append(HTMLskills.replace('%data%', bio.skills[x]));
+    }
+}
+
+// Work population
+work.displayWork = function() {
+   work.jobs.forEach(function(job){
+    $('#workExperience').append(HTMLworkStart);
+    $('.work-entry:last').append(HTMLworkEmployer.replace('%data%', job.employer) + HTMLworkTitle.replace('%data%', job.title));
+    $('.work-entry:last').append(HTMLworkLocation.replace('%data%', job.location));
+    $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates));
+    $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
+    });
+};
 
 
+$(document).click(function(loc) {
+    logClicks(loc.pageX, loc.pageY);
+});
 
+$('#main').append(internationalizeButton);
+
+projects.display = function() {
+    projects.projects.forEach(function(project) {
+        $('#projects').append(HTMLprojectStart);
+        $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', project.title));
+        $('.project-entry:last').append(HTMLprojectDates.replace('%data%', project.dates));
+        $('.project-entry:last').append(HTMLprojectDescription.replace('%data%', project.description));
+        $('.project-entry:last').append(HTMLprojectImage.replace('%data%', project.images));
+    });
+};
+
+work.displayWork();
+projects.display();
+
+
+$('#mapDiv').append(googleMap);
 

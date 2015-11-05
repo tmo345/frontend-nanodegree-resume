@@ -133,7 +133,7 @@ var education = {
         }
     ],
     'display': function() {
-        this.schools.forEach(function(school){
+        this.schools.forEach(function(school) {
             $('#education').append(HTMLschoolStart);
 
             var schoolName = HTMLschoolName.replace('%data%', school.name).replace('#', school.url);
@@ -144,6 +144,16 @@ var education = {
             for (var x = 0; x < school.majors.length; x++) {
                 $('.education-entry:last').append(HTMLschoolMajor.replace('%data%', school.majors[x]));
             }
+        });
+        $('#education').append(HTMLonlineClasses);
+        this.onlineCourses.forEach(function(course) {
+            $('#education').append(HTMLschoolStart);
+
+            var courseName = HTMLonlineTitle.replace('%data%', course.title).replace('#', course.url);
+            var schoolName = HTMLonlineSchool.replace('%data%', course.school);
+            $('.education-entry:last').append(courseName + schoolName);
+            $('.education-entry:last').append(HTMLonlineDates.replace('%data%', course.dates));
+            $('.education-entry:last').append(HTMLonlineURL.replace('%data%', course.url));
         });
     }
 

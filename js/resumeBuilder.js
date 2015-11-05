@@ -1,3 +1,38 @@
+var bio = {
+    "name": "Timothy Moore",
+    "role": "Web Developer",
+    "contacts": {
+        "email": "moore.tim@outlook.com",
+        "github": "tmo345",
+        "location": "Augusta, GA"
+    },
+    "welcomeMessage": "Welcome to my resume.",
+    "skills": ["html", "css", "javascript", "jquery", "php", "WordPress", "Genesis Framework"],
+    "image": "images/Timothy_Moore.jpg",
+    "biopic": "www.timothymoore.me",
+    // display method
+    "display": function() {
+        $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
+        $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
+
+        for (var contact in bio.contacts) {
+            if (bio.contacts.hasOwnProperty(contact)) {
+                $('#topContacts').append(HTMLcontactGeneric.replace('%contact%', contact).replace('%data%', bio.contacts[contact]));
+            }
+        }
+
+        $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+        $('#header').append(HTMLbioPic.replace('%data%', bio.image));
+
+        if (bio.skills.length > 0) {
+            $('#header').append(HTMLskillsStart);
+            for (var x = 0; x < bio.skills.length; x++) {
+                $('#skills').append(HTMLskills.replace('%data%', bio.skills[x]));
+            }
+        }
+    }
+}
+
 var work = {
     "jobs": [
         {
@@ -12,7 +47,7 @@ var work = {
             "title": "Science Teacher",
             "location": "Grovetown, GA",
             "dates": "August 2012 - April 2013",
-            "description": "Taught Environmental Science and Biology to high school freshman and sophpmores"
+            "description": "Taught Environmental Science and Biology to high school freshman and sophomores."
         },
         {
             "employer": "Medical College of Georgia at Georgia Regents University",
@@ -35,7 +70,16 @@ var work = {
             "dates": "October 2015 - Present",
             "description": "Own and operate business and build/maintain WordPress websites for businesses and organizations."
         }
-    ]
+    ],
+    "display": function() {
+        work.jobs.forEach(function(job){
+        $('#workExperience').append(HTMLworkStart);
+        $('.work-entry:last').append(HTMLworkEmployer.replace('%data%', job.employer) + HTMLworkTitle.replace('%data%', job.title));
+        $('.work-entry:last').append(HTMLworkLocation.replace('%data%', job.location));
+        $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates));
+        $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
+        });
+    }
 }
 
 var projects = {
@@ -73,18 +117,7 @@ var projects = {
     ]
 }
 
-var bio = {
-    "name": "Timothy Moore",
-    "role": "Web Developer",
-    "welcomeMessage": "Welcome to my resume.",
-    "contacts": {
-        "email": "moore.tim@outlook.com",
-        "location": "Augusta, GA",
-        "github": "tmo345"
-    },
-    "skills": ["html", "css", "javascript", "jquery", "php", "WordPress", "Genesis Framework"],
-    "image": "images/Timothy_Moore.jpg"
-}
+
 
 var education = {
     "schools": [
@@ -144,34 +177,6 @@ var inName = function() {
 
 
 
-bio.displayBio = function() {
-    // Header population
-    $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
-    $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
-
-    for (var contact in bio.contacts) {
-        $('#topContacts').append(HTMLcontactGeneric.replace('%contact%', contact).replace('%data%', bio.contacts[contact]));
-    }
-    $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
-    $('#header').append(HTMLbioPic.replace('%data%', bio.image));
-
-}
-
-
-
-
-// Work population
-work.displayWork = function() {
-   work.jobs.forEach(function(job){
-    $('#workExperience').append(HTMLworkStart);
-    $('.work-entry:last').append(HTMLworkEmployer.replace('%data%', job.employer) + HTMLworkTitle.replace('%data%', job.title));
-    $('.work-entry:last').append(HTMLworkLocation.replace('%data%', job.location));
-    $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates));
-    $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
-    });
-};
-
-
 $(document).click(function(loc) {
     logClicks(loc.pageX, loc.pageY);
 });
@@ -188,17 +193,12 @@ projects.display = function() {
     });
 };
 
-bio.displayBio();
-work.displayWork();
+bio.display();
+work.display();
 projects.display();
 
 // Skills population
-if (bio.skills.length > 0) {
-    $('#header').append(HTMLskillsStart);
-    for (var x = 0; x < bio.skills.length; x++) {
-        $('#skills').append(HTMLskills.replace('%data%', bio.skills[x]));
-    }
-}
+
 
 $('#mapDiv').append(googleMap);
 

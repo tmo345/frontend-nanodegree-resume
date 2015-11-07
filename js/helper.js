@@ -17,7 +17,7 @@ var HTMLheaderMenuStart = '<li class="menu-item"></li>';
 var HTMLheaderMenuItem = '<a href="%link%">%data%</a>';
 
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<h2>%data%</h2>';
+var HTMLheaderRole = '<span>%data%</span>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';

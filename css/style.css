@@ -91,6 +91,9 @@ a {
   margin-top: 10px;
   display: block;
 }
+hr {
+  clear: both;
+}
 
 .welcome-message {
   font-style: italic;
@@ -207,10 +210,16 @@ span {
   padding-bottom: 5%;
 }
 
-.menu {
-  position: fixed;
-  top: 0;
-  background-color: red;
+#title-area {
+  float: left;
+}
+
+#topContacts {
+  clear: both;
+}
+
+nav {
+  float: right;
 }
 
 .menu li {

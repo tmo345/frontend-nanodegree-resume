@@ -210,8 +210,12 @@ span {
   padding-bottom: 5%;
 }
 
-#title-area {
+#name-area {
   float: left;
+}
+
+.title-area {
+
 }
 
 #topContacts {

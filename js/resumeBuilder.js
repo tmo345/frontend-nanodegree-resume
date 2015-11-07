@@ -11,8 +11,8 @@ var bio = {
     'image': 'images/Timothy_Moore.jpg',
     // display method
     'display': function() {
-        $('#title-area').prepend(HTMLheaderRole.replace('%data%', this.role));
-        $('#title-area').prepend(HTMLheaderName.replace('%data%', this.name));
+        $('#name-area').prepend(HTMLheaderRole.replace('%data%', this.role));
+        $('#name-area').prepend(HTMLheaderName.replace('%data%', this.name));
         // button at bottom of page for internationalization of name
         $('#main').append(internationalizeButton);
 

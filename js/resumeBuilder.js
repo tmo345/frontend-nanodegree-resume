@@ -11,8 +11,8 @@ var bio = {
     'image': 'images/Timothy_Moore.jpg',
     // display method
     'display': function() {
-        $('#header').prepend(HTMLheaderRole.replace('%data%', this.role));
-        $('#header').prepend(HTMLheaderName.replace('%data%', this.name));
+        $('#title-area').prepend(HTMLheaderRole.replace('%data%', this.role));
+        $('#title-area').prepend(HTMLheaderName.replace('%data%', this.name));
         // button at bottom of page for internationalization of name
         $('#main').append(internationalizeButton);
 
@@ -207,7 +207,31 @@ var projects = {
 }
 
 var menu = {
-    'menuItems': ['Work Experience', 'Projects', 'Education', 'Places Lived & Worked']
+    'menuItems': [
+        {
+            'section': 'Work Experience',
+            'link': '#workExperience'
+        },
+        {
+            'section': 'Projects',
+            'link': '#projects'
+        },
+        {
+            'section': 'Education',
+            'link': '#education'
+        },
+        {
+            'section': 'Places Lived & Worked',
+            'link': '#mapDiv'
+        }
+
+    ],
+    'display': function() {
+        this.menuItems.forEach(function(menuItem){
+            $('nav .menu').append(HTMLheaderMenuStart);
+            $('.menu-item:last').append(HTMLheaderMenuItem.replace('%link%', menuItem.link).replace('%data%', menuItem.section));
+        });
+    }
 };
 
 
@@ -228,7 +252,7 @@ bio.display();
 work.display();
 projects.display();
 education.display();
-
+menu.display();
 
 
 

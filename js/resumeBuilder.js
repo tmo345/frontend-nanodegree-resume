@@ -14,7 +14,7 @@ var bio = {
         $('#name-area').prepend(HTMLheaderRole.replace('%data%', this.role));
         $('#name-area').prepend(HTMLheaderName.replace('%data%', this.name));
         // button at bottom of page for internationalization of name
-        $('#main').append(internationalizeButton);
+        $('main').append(internationalizeButton);
 
         for (var contact in this.contacts) {
             if (this.contacts.hasOwnProperty(contact)) {
@@ -23,11 +23,11 @@ var bio = {
             }
         }
 
-        $('#header').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
-        $('#header').append(HTMLbioPic.replace('%data%', this.image));
+        $('header').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
+        $('header').append(HTMLbioPic.replace('%data%', this.image));
 
         if (this.skills.length > 0) {
-            $('#header').append(HTMLskillsStart);
+            $('header').append(HTMLskillsStart);
             for (var x = 0; x < this.skills.length; x++) {
                 $('#skills').append(HTMLskills.replace('%data%', this.skills[x]));
             }
@@ -208,6 +208,10 @@ var projects = {
 
 var menu = {
     'menuItems': [
+        {
+            'section': 'About',
+            'link': '#about'
+        },
         {
             'section': 'Work Experience',
             'link': '#workExperience'

@@ -207,6 +207,16 @@ span {
   padding-bottom: 5%;
 }
 
+.menu {
+  position: fixed;
+  top: 0;
+  background-color: red;
+}
+
+.menu li {
+  display: inline-block;
+}
+
 @media only screen and (min-width: 750px) {
   #skills-h3,
   .biopic {

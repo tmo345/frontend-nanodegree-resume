@@ -1,5 +1,8 @@
-$education = $('#workExperience')
 
-$('#name').click(function() {
-    $('body').animate({scrollTop: $education.offset().top }, 1200);
+$('.menu-item a').each(function() {
+    $(this).click(function(evt) {
+        evt.preventDefault();
+        target = $(this).attr('href');
+        $('body').animate({scrollTop: $(target).offset().top }, 1200);
+    });
 });

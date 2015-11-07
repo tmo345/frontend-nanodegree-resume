@@ -168,6 +168,8 @@ hr {
 
 #topContacts {
   clear: both;
+  border-top: 1px solid #fff;
+  margin-top: 20px;
 }
 
 .flex-box {

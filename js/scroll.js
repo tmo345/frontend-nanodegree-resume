@@ -1,4 +1,3 @@
-
 $('.menu-item a').each(function() {
     $(this).click(function(evt) {
         evt.preventDefault();

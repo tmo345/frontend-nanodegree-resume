@@ -12,6 +12,8 @@ Cameron Pittman
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
+
+var HTMLheaderMenuItem = '<li class="menu-item"><a href="%link%">%data%</a></li>';
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
 
@@ -172,8 +174,8 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent(infoWindow.content);
-        infoWindow.open(map, this);
+        // infoWindow.setContent(infoWindow.content);
+        infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.

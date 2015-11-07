@@ -13,10 +13,13 @@ var bio = {
     'display': function() {
         $('#header').prepend(HTMLheaderRole.replace('%data%', this.role));
         $('#header').prepend(HTMLheaderName.replace('%data%', this.name));
+        // button at bottom of page for internationalization of name
+        $('#main').append(internationalizeButton);
 
         for (var contact in this.contacts) {
             if (this.contacts.hasOwnProperty(contact)) {
                 $('#topContacts').append(HTMLcontactGeneric.replace('%contact%', contact).replace('%data%', this.contacts[contact]));
+                $('#footerContacts').append(HTMLcontactGeneric.replace('%contact%', contact).replace('%data%', this.contacts[contact]));
             }
         }
 
@@ -203,6 +206,9 @@ var projects = {
     }
 }
 
+var menu = {
+    'menuItems': ['Work Experience', 'Projects', 'Education', 'Places Lived & Worked']
+};
 
 
 
@@ -215,7 +221,7 @@ var inName = function() {
 };
 
 
-$('#main').append(internationalizeButton);
+
 
 
 bio.display();
@@ -223,7 +229,7 @@ work.display();
 projects.display();
 education.display();
 
-// Skills population
+
 
 
 $('#mapDiv').append(googleMap);

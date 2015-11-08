@@ -22,6 +22,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <title>Resume</title>
 
   <!-- Load the page styles. -->
+  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
   <link href="css/style.css" rel="stylesheet">
 
   <!--
@@ -61,7 +62,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     display by looking at the id or at what's written between the <h2> tags.
     -->
 
-    <header id="about" class="center-content clear-fix">
+    <header class="center-content clear-fix">
       <div class="nav-bar">
         <div class="nav-bar-content center-content">
           <div id="name-area"></div>
@@ -70,9 +71,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
           </nav>
         </div>
       </div>
-      <ul id="topContacts" class="flex-box"></ul>
     </header>
-    <div style="clear: both;"></div>
+    <article id="about">
+      <h2>About</h2>
+      <ul id="topContacts"></ul>
+    </article>
+   <!--  <div style="clear: both;"></div> -->
     <article id="workExperience" class="gray">
       <h2>Work Experience</h2>
     </article>
@@ -123,27 +127,27 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     */
 
 
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.backgroundColor = '#000';
-    }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.backgroundColor = '#000';
-    }
-    if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.backgroundColor = '#000';
-    }
-    if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.backgroundColor = '#000';
-    }
-    if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.backgroundColor = '#000';
-    }
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('lets-connect').style.backgroundColor = '#000';
-    }
-    if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.backgroundColor = '#000';
-    }
+    // if(document.getElementsByClassName('flex-item').length === 0) {
+    //   document.getElementById('topContacts').style.backgroundColor = '#000';
+    // }
+    // if(document.getElementsByTagName('h1').length === 0) {
+    //   document.getElementById('header').style.backgroundColor = '#000';
+    // }
+    // if(document.getElementsByClassName('work-entry').length === 0) {
+    //   document.getElementById('workExperience').style.backgroundColor = '#000';
+    // }
+    // if(document.getElementsByClassName('project-entry').length === 0) {
+    //   document.getElementById('projects').style.backgroundColor = '#000';
+    // }
+    // if(document.getElementsByClassName('education-entry').length === 0) {
+    //   document.getElementById('education').style.backgroundColor = '#000';
+    // }
+    // if(document.getElementsByClassName('flex-item').length === 0) {
+    //   document.getElementById('lets-connect').style.backgroundColor = '#000';
+    // }
+    // if(document.getElementById('map') === null) {
+    //   document.getElementById('mapDiv').style.backgroundColor = '#000';
+    // }
   </script>
 </body>
 </html>

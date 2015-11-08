@@ -23,11 +23,11 @@ var bio = {
             }
         }
 
-        $('header').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
-        $('header').append(HTMLbioPic.replace('%data%', this.image));
+        $('#about').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
+        $('#about').append(HTMLbioPic.replace('%data%', this.image));
 
         if (this.skills.length > 0) {
-            $('header').append(HTMLskillsStart);
+            $('#about').append(HTMLskillsStart);
             for (var x = 0; x < this.skills.length; x++) {
                 $('#skills').append(HTMLskills.replace('%data%', this.skills[x]));
             }

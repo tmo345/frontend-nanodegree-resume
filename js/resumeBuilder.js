@@ -1,5 +1,5 @@
 var bio = {
-    'name': 'Timothy Moore',
+    'name': 'Timothy J. Moore',
     'role': 'Web Developer',
     'contacts': {
         'email': 'moore.tim@outlook.com',
@@ -210,30 +210,37 @@ var menu = {
     'menuItems': [
         {
             'section': 'About',
-            'link': '#about'
+            'link': '#about',
+            'class': 'aboutMenu'
         },
         {
             'section': 'Work Experience',
-            'link': '#workExperience'
+            'link': '#workExperience',
+            'class': 'workMenu'
         },
         {
             'section': 'Projects',
-            'link': '#projects'
+            'link': '#projects',
+            'class': 'projectsMenu'
         },
         {
             'section': 'Education',
-            'link': '#education'
+            'link': '#education',
+            'class': 'educationMenu'
         },
         {
             'section': 'Places Lived & Worked',
-            'link': '#mapDiv'
+            'link': '#mapDiv',
+            'class': 'mapMenu'
         }
 
     ],
     'display': function() {
         this.menuItems.forEach(function(menuItem){
-            $('nav .menu').append(HTMLheaderMenuStart);
-            $('.menu-item:last').append(HTMLheaderMenuItem.replace('%link%', menuItem.link).replace('%data%', menuItem.section));
+            $('nav .menu').append(HTMLheaderMenuStart.replace('%dataAttr%', menuItem.class));
+            $('.menu-item:last').append(HTMLheaderMenuItem
+                    .replace('%link%', menuItem.link)
+                    .replace('%data%', menuItem.section));
         });
     }
 };

@@ -67,16 +67,18 @@ $(function() {
 
     function setActiveSection() {
         if (inSection(about)) {
-                addActive(aboutMenu);
-            } else if (inSection(work)) {
-                addActive(workMenu);
-            } else if (inSection(projects)) {
-                addActive(projectsMenu);
-            } else if (inSection(education)) {
-                addActive(educationMenu);
-            } else if (inSection(map)) {
-                addActive(mapMenu);
-            }
+            addActive(aboutMenu);
+        } else if (inSection(work)) {
+            addActive(workMenu);
+        } else if (inSection(projects)) {
+            addActive(projectsMenu);
+        } else if (inSection(education)) {
+            addActive(educationMenu);
+        } else if (inSection(map)) {
+            addActive(mapMenu);
+        } else {
+            addActive(aboutMenu);
+        }
     }
 
 });

@@ -95,12 +95,12 @@ p {
   line-height: 21px;
 }
 
-a {
+/*a {
   color: #1199c3;
   text-decoration: none;
   margin-top: 10px;
   display: block;
-}
+}*/
 
 
 .welcome-message {
@@ -139,13 +139,13 @@ a {
   background-color: #4a4a4a;
 }
 
-/*header {
+header {
   background-color: #256246;
   background-color: #637C5E;
   background-color: #fff;
   color: #fff;
 
-}*/
+}
 
 .top-bar {
   background-color: #745747;
@@ -163,7 +163,7 @@ a {
   height: 50px;
   background-color: #277455;
   background-color: #2B4C6F;
-  /*background-color: #6F5749;*/
+  background-color: #6F5749;
   background-color: #256246;
   background-color: #745747;
   padding-top: 10px;
@@ -176,6 +176,14 @@ a {
 
 }
 
+.top-bar-section ul li, .top-bar-section ul li a {
+  background-color: #745747;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: #745747;
+}
+
 /*.menu {
   float: right;
 }
@@ -184,16 +192,16 @@ a {
  color: #fff;
 
 }
-.menu li {
+/*.menu li {
   display: inline-block;
 
-}
-.menu li a {
+}*/
+/*.menu li a {
   color: #fff;
   padding: 20px 15px;
   margin-top: -10px;
   font-size: 18px;
-}
+}*/
 
 hr {
   clear: both;
@@ -234,9 +242,9 @@ article {
   padding-bottom: 60px;
 }
 
-ul {
+/*ul {
   list-style-type: none;
-}
+}*/
 
 .biopic {
   float: left;
@@ -262,11 +270,11 @@ span {
 }
 /* Media queries to handle various device widths */
 
-@media only screen and (max-width: 1024px) {
+/*@media only screen and (max-width: 1024px) {
   #lets-connect {
     margin-top: 5%;
   }
-}
+}*/
 /*
 @media only screen and (max-width:900px) {
   .biopic {
@@ -274,18 +282,18 @@ span {
   }
 }*/
 
-@media only screen and (max-width: 750px) {
+/*@media only screen and (max-width: 750px) {
   #lets-connect {
     margin-top: 10%;
   }
   .biopic {
     width: 150px;
-  }
+  }*/
   /*.welcome-message {
     display: none;
   }*/
-}
-
+/*}
+*/
 #map {
   display: block;
   height: 100%;
@@ -301,15 +309,21 @@ span {
 
 
 
-.active a {
-  background-color: green;
+.active a, .top-bar-section li.active:not(.has-form) a:not(.button) {
+  background-color: #C08463;
 }
 
+.top-bar-section li.active:not(.has-form) a:not(.button):hover, .top-bar-section li.active:not(.has-form) a:not(.button):focus {
+  background-color: #C08463;
+}
 
-
+.top-bar-section li:not(.has-form) a:not(.button):hover, .top-bar-section li:not(.has-form) a:not(.button):focus {
+  background-color: rgba(177, 112, 81, 0.5);
+}
+/*
 @media only screen and (min-width: 750px) {
   #skills-h3,
   .biopic {
     display: block;
   }
-}
+}*/

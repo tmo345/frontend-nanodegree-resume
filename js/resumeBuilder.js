@@ -237,7 +237,7 @@ var menu = {
     ],
     'display': function() {
         this.menuItems.forEach(function(menuItem){
-            $('nav .menu').append(HTMLheaderMenuStart.replace('%dataAttr%', menuItem.class));
+            $('.top-bar-section ul').append(HTMLheaderMenuStart.replace('%dataAttr%', menuItem.class));
             $('.menu-item:last').append(HTMLheaderMenuItem
                     .replace('%link%', menuItem.link)
                     .replace('%data%', menuItem.section));

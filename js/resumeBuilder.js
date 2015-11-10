@@ -11,7 +11,7 @@ var bio = {
     'image': 'images/Timothy_Moore.jpg',
     // display method
     'display': function() {
-        $('#name-area').prepend(HTMLheaderRole.replace('%data%', this.role));
+        // $('#name-area').prepend(HTMLheaderRole.replace('%data%', this.role));
         $('#name-area').prepend(HTMLheaderName.replace('%data%', this.name));
         // button at bottom of page for internationalization of name
         $('main').append(internationalizeButton);
@@ -23,11 +23,11 @@ var bio = {
             }
         }
 
-        $('#about').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
-        $('#about').append(HTMLbioPic.replace('%data%', this.image));
+        $('.welcome').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
+        $('.biopicWelcome').prepend(HTMLbioPic.replace('%data%', this.image));
 
         if (this.skills.length > 0) {
-            $('#about').append(HTMLskillsStart);
+            $('.skills').append(HTMLskillsStart);
             for (var x = 0; x < this.skills.length; x++) {
                 $('#skills').append(HTMLskills.replace('%data%', this.skills[x]));
             }

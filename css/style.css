@@ -38,6 +38,15 @@ h6 {
   display: inline;
 }
 
+#about {
+  padding-top: 20px;
+}
+
+#topContacts {
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #63815C;
+}
 h2 {
   font-weight: bold;
   font-size: 24px;
@@ -120,7 +129,9 @@ p {
 }
 
 .orange-text {
-  color: #23223C;
+  color: #63815C;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .white-text {
@@ -132,6 +143,7 @@ p {
   background-color: #496F6F;
   background-color: #fff;
     background-color: #637C5E;
+    background-color: #4A5C71;
 }
 
 
@@ -152,6 +164,7 @@ header {
 
 .topbar-container, .top-bar {
   background-color: #745747;
+  background-color: #AD836B;
 }
 /*
 .topbar-section {
@@ -188,13 +201,21 @@ header {
 nav {
   max-width: 1000px;
   margin: 0 auto;
+
 }
+
+.top-bar-section ul li {
+  font-family: "Lato", sans-serif;
+}
+
 .top-bar-section ul li, .top-bar-section ul li a {
   background-color: #745747;
+  background-color: #AD836B;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
   background-color: #745747;
+  background-color: #AD836B;
 }
 
 /*.menu {
@@ -323,15 +344,19 @@ span {
 
 
 .active a, .top-bar-section li.active:not(.has-form) a:not(.button) {
-  background-color: #C08463;
+  background-color: #63815C;
+  background-color: #6F965D;
 }
 
 .top-bar-section li.active:not(.has-form) a:not(.button):hover, .top-bar-section li.active:not(.has-form) a:not(.button):focus {
-  background-color: #C08463;
+  background-color: #63815C;
+  background-color: #6F965D;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover, .top-bar-section li:not(.has-form) a:not(.button):focus {
-  background-color: rgba(177, 112, 81, 0.5);
+  background-color: #6e9864;
+  background-color: #6F965D;
+  /*opacity: 0.8;*/
 }
 /*
 @media only screen and (min-width: 750px) {

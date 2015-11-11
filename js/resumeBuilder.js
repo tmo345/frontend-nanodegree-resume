@@ -2,7 +2,7 @@ var bio = {
     'name': 'Timothy J. Moore',
     'role': 'Web Developer',
     'contacts': {
-        'email': 'moore.tim@outlook.com',
+        'email': 'tim@timothymoore.me',
         'github': 'tmo345',
         'location': 'Augusta, GA'
     },

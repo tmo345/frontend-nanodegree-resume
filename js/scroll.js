@@ -1,6 +1,6 @@
 $(function() {
 
-    var windowScroll = $(window);
+    var windowScroll = $(document);
     var about = $('#about');
     var aboutMenu = $('.aboutMenu');
     var work = $('#workExperience');
@@ -11,12 +11,8 @@ $(function() {
     var educationMenu = $('.educationMenu');
     var map = $('#mapDiv');
     var mapMenu = $('.mapMenu');
+    var scrollWatcherID;
 
-
-    // Determine initial active section and set
-    setActiveSection();
-    // Set window scroll event listener
-    turnWindowScrollOn();
 
     // Event Listeners
 
@@ -24,9 +20,14 @@ $(function() {
     $('.menu-item a').each(function() {
         $(this).click(function(evt) {
             evt.preventDefault();
-            target = $(this).attr('href');
-            windowScroll.off('scroll');
-            $('body').animate({scrollTop: ($(target).offset().top - 40) }, 1200, function() {turnWindowScrollOn()});
+            var target = $(this).attr('href');
+            clearInterval(scrollWatcherID);
+            // if (!$(this).has('About')) {
+            //     setTopBarHeight();
+            // }
+            $('body').animate({scrollTop: ($(target).offset().top - 75) }, 1200, function() {
+                    scrollWatcher();
+                });
         });
     });
 
@@ -37,35 +38,39 @@ $(function() {
             $('.active').removeClass('active');
             $(this).toggleClass('active');
 
-        })
+        });
     });
 
-    // Scroll event
-    function turnWindowScrollOn() {
-        windowScroll.on('scroll', function() {
-           setActiveSection();
-        });
-    }
+    // // Scroll event
+    // function turnWindowScrollOn() {
+    //     windowScroll.on('scroll', function() {
+    //         console.log(windowScroll.scrollTop());
+    //     setActiveSection();
+    //     setTopBarHeight();
+    //     });
+    // }
 
 
     // Helper functions
 
     function addActive(menuItem) {
         $('.active').removeClass('active');
-        if (!(menuItem).is('.active')) {
-            menuItem.addClass('active');
-        }
+        menuItem.toggleClass('active');
     }
 
     function calcOffset(section) {
-        return section.offset().top - 50;
+        return section.offset().top - 50; // Subtract 50 to provide space for fixed topbar
     }
 
     function inSection(section) {
+        if (section === about) {
+            return (windowScroll.scrollTop() === 0) || (windowScroll.scrollTop() < calcOffset(section.next()));
+        }
         return (calcOffset(section) < windowScroll.scrollTop()) && (windowScroll.scrollTop() < calcOffset(section.next()));
     }
 
     function setActiveSection() {
+        // console.log('setActive!');
         if (inSection(about)) {
             addActive(aboutMenu);
         } else if (inSection(work)) {
@@ -80,6 +85,61 @@ $(function() {
             addActive(aboutMenu);
         }
     }
+
+    // function setTopBarHeight() {
+    //     console.log('topbar');
+    //     if ($(document).scrollTop() > 20) {
+    //         $('.top-bar').removeClass('at-top');
+    //         $('.top-bar').addClass('scrolling');
+    //     } else {
+    //         $('.top-bar').removeClass('scrolling');
+    //         $('.top-bar').addClass('at-top');
+    //     }
+    // }
+
+    function scrollWatcher() {
+        scrollWatcherID = window.setInterval(setActiveSection, 200);
+        // window.setInterval(setTopBarHeight, 400);
+
+    }
+        // var topBarWatcherID;
+    // function topBarWatcher() {
+    //     topBarWatcherID = window.setInterval(setTopBarHeight, 300);
+    //     // turnOnTopBarWatcher();
+    //     window.setInterval(pauseTopBar, 1000);
+    // }
+
+
+    // var topBarWatcherOn = true;
+
+    // function pauseTopBar() {
+    //     if (windowScroll.scrollTop() < 100) {
+    //         topBarWatcherID = window.setInterval(setTopBarHeight, 400);
+    //     }
+    //     if (windowScroll.scrollTop() >= 100) {
+    //         console.log(topBarWatcherID);
+    //         topBarWatcherID = window.setInterval(setTopBarHeight, 12000); }
+
+    //     // } else if (windowScroll.scrollTop() < 50) {
+    //     //     topBarWatcherID = window.setInterval(setTopBarHeight, 400);
+    //     //     console.log(topBarWatcherID);
+    //     // } else {
+    //     //     console.log(windowScroll.scrollTop() < 50);
+    //     // }
+    // }
+
+    // function turnOnTopBarWatcher() {
+    //     window.setInterval(setTopBarHeight, 400);
+
+    // }
+
+
+ // Determine initial active section and set
+    scrollWatcher();
+    // topBarWatcher();
+    // setActiveSection();
+    // Set window scroll event listener
+    // turnWindowScrollOn();
 
 });
 

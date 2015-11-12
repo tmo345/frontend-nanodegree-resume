@@ -14,7 +14,7 @@ replace the %data% placeholder text you see in them.
 */
 
 var HTMLheaderMenuStart = '<li class="menu-item %dataAttr%"></li>';
-var HTMLheaderMenuItem = '<a href="%link%">%data%</a>';
+var HTMLheaderMenuItem = '<a href="%link%" class="button">%data%</a>';
 
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span>';
@@ -27,40 +27,41 @@ var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic large-3 columns">';
+var HTMLbioPic = '<img src="%data%" class="biopic large-2 columns">';
 var HTMLwelcomeMsg = '<span class="welcome-message large-12 columns">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box large-12 columns"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkEmployer = '<div class="row"><a href="#" class="large-12 columns">%data%';
+var HTMLworkTitle = ' - %data%</a></div>';
+var HTMLworkDates = '<div class="row"><div class="date-text large-6 column">%data%</div>';
+var HTMLworkLocation = '<div class="location-text large-6 column">%data%</div></div>';
+var HTMLworkDescription = '<div class="row"><p class="large-12 columns">%data%</p></div>';
 
-var HTMLprojectStart = '<div class="project-entry"></div>';
+var HTMLprojectStart = '<div class="project-entry large-6 columns"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectDescription = '<p>%data%</p>';
+var HTMLprojectImage = '<img src="%data%" class="large-3 columns">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolName = '<div class="row"><a href="#" class="large-12 columns">%data%';
+var HTMLschoolDegree = ' -- %data%</a></div>';
+var HTMLschoolDates = '<div class="row"><div class="date-text large-6 columns">%data%</div>';
+var HTMLschoolLocation = '<div class="location-text large-6 columns">%data%</div></div>';
+var HTMLschoolMajor = '<div class="row"><p class="large-12 columns"><em>Major: %data%</em></p></div>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineStart = '<div class="online-entry"></div>';
+var HTMLonlineClasses = '<div class="row"><h3 class="large-12 columns">Online Classes</h3></div>';
+var HTMLonlineTitle = '<div class="row"><a href="#" class="large-12 columns">%data%';
+var HTMLonlineSchool = ' - %data%</a></div>';
+var HTMLonlineDates = '<div class="row"><div class="date-text large-12 columns">%data%</div></div>';
+var HTMLonlineURL = '<div class="row"><p class="large-12 columns"><a href="#">%data%</a></p><div>';
 
 var internationalizeButton = '<button>Internationalize</button>';
-var googleMap = '<div id="map"></div>';
+var googleMap = '<div id="map" class="row"></div>';
 
 
 /*
@@ -76,7 +77,7 @@ $(document).ready(function() {
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */
-clickLocations = [];
+var clickLocations = [];
 
 function logClicks(x,y) {
   clickLocations.push(
@@ -194,7 +195,7 @@ function initializeMap() {
   If so, it creates a new map marker for that location.
   */
   function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0]);
     }
   }

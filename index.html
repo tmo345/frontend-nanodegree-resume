@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume</title>
   <link href='https://fonts.googleapis.com/css?family=Abel|Lato:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/foundation.css" />
-  <link href="css/style.css" rel="stylesheet">
-  <script src="js/vendor/modernizr.js"></script>
+  <link href="stylesheets/app.css" rel="stylesheet">
+  <script src="bower_components/modernizr/modernizr.js"></script>
 </head>
 <body>
   <main>
     <header>
-
     <div class="fixed topbar-container">
       <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area large-4 columns">
@@ -36,13 +33,13 @@
 
       </div> -->
     </header>
-    <article id="about">
-<!--       <div class="row">
-        <h2 class="large-12 columns">About</h2>
-      </div> -->
+    <article id="about" class="gray">
+      <div class="row">
+        <h2 class="large-12 columns articleHeading">About</h2>
+      </div>
       <ul id="topContacts" class="row"></ul>
       <div class="row biopicWelcome">
-        <div class="large-9 columns">
+        <div class="large-10 columns">
           <div class="row welcome"></div>
           <div class="row skills"></div>
         </div>
@@ -50,27 +47,39 @@
       </div>
 
     </article>
-    <article id="workExperience" class="gray">
-      <h2>Work Experience</h2>
+    <article id="workExperience">
+      <div class="row">
+        <h2 class="large-12 columns articleHeading">Work Experience</h2>
+      </div>
+
     </article>
-    <article id="projects">
-      <h2>Projects</h2>
+    <article id="projects" class="gray">
+      <div class="row">
+        <h2 class="large-12 columns articleHeading">Projects</h2>
+      </div>
     </article>
-    <article id="education" class="gray">
-      <h2>Education</h2>
+    <article id="education">
+      <div class="row">
+        <h2 class="large-12 columns articleHeading">Education</h2>
+      </div>
     </article>
-    <article id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
+    <article id="mapDiv" class="gray">
+      <div class="row">
+        <h2 class="large-12 columns articleHeading">Where I've Lived and Worked</h2>
+      </div>
     </article>
-    <footer id="lets-connect" class="dark-gray row">
-      <h2 class="orange center-text">Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
+    <footer id="lets-connect" class="dark-gray">
+      <div class="row">
+        <h2 class="orange center-text large-12 columns articleHeading">Let's Connect</h2>
+      </div>
+      <div class="row">
+        <ul id="footerContacts" class="flex-box"></ul>
+      </div>
     </footer>
   </main>
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  <script src="js/foundation/foundation.magellan.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
    <script src="js/helper.js"></script>
   <script src="js/resumeBuilder.js"></script>

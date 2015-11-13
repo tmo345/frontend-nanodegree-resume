@@ -13,8 +13,9 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 
-var HTMLheaderMenuStart = '<li class="menu-item %dataAttr%"></li>';
-var HTMLheaderMenuItem = '<a href="%link%" class="button">%data%</a>';
+// var HTMLheaderMenuStart = '<li data-magellan-arrival="%dataMagellan%" class="menu-item %dataAttr%"></li>';
+var HTMLheaderMenuItem = '<li data-magellan-arrival="%dataMagellan%"><a href="%link%">%data%</a></li>';
+// var HTMLheaderMenuItem = '<a href="%link%">%data%</a>';
 
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span>';

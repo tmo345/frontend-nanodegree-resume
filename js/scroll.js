@@ -18,13 +18,11 @@ $(function() {
 
     // Scroll to target
     $('.menu-item a').each(function() {
-        $(this).click(function(evt) {
+        $(this).on('click', function(evt) {
             evt.preventDefault();
             var target = $(this).attr('href');
             clearInterval(scrollWatcherID);
-            // if (!$(this).has('About')) {
-            //     setTopBarHeight();
-            // }
+            removeActive();
             $('body').animate({scrollTop: ($(target).offset().top - 75) }, 1200, function() {
                     scrollWatcher();
                 });
@@ -33,7 +31,7 @@ $(function() {
 
     // Toggle active
     $('.menu-item').each(function() {
-        $(this).click(function(evt) {
+        $(this).on('click focusout', function(evt) {
             evt.preventDefault();
             $('.active').removeClass('active');
             $(this).toggleClass('active');
@@ -58,8 +56,12 @@ $(function() {
         menuItem.toggleClass('active');
     }
 
+    function removeActive() {
+        $('.active').removeClass('active');
+    }
+
     function calcOffset(section) {
-        return section.offset().top - 50; // Subtract 50 to provide space for fixed topbar
+        return section.offset().top - 75; // Subtract 50 to provide space for fixed topbar
     }
 
     function inSection(section) {

@@ -275,8 +275,11 @@ var menu = {
     ],
     'display': function() {
         this.menuItems.forEach(function(menuItem){
-            $('.top-bar-section ul').append(HTMLheaderMenuStart.replace('%dataAttr%', menuItem.class));
-            $('.menu-item:last').append(HTMLheaderMenuItem
+            // $('.top-bar-section ul').append(HTMLheaderMenuStart
+            //         .replace('%dataAttr%', menuItem.class)
+            //         .replace('%dataMagellan%', menuItem.link.slice(1)));
+            $('.top-bar-section').append(HTMLheaderMenuItem
+                    .replace('%dataMagellan%', menuItem.link.slice(1))
                     .replace('%link%', menuItem.link)
                     .replace('%data%', menuItem.section));
         });

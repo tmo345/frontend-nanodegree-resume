@@ -1403,11 +1403,11 @@ $h2-font-size: rem-calc(27);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #fff;
+// $topbar-bg-color: #fff;
 $topbar-bg: #fff;
 
 // Height and margin
-$topbar-height: rem-calc(60);
+$topbar-height: rem-calc(55);
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
@@ -1415,21 +1415,21 @@ $topbar-height: rem-calc(60);
 // $topbar-title-font-size: rem-calc(17);
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #fff;
-$topbar-link-color-hover: #fff;
+$topbar-link-color: #333;
+$topbar-link-color-hover: blue;
 $topbar-link-color-active: #fff;
 $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: $font-weight-normal;
 $topbar-link-font-size: rem-calc(15);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg: #284f29;
-$topbar-link-bg-hover: #284f29;
+// $topbar-link-bg: #284f29;
+$topbar-link-bg-hover: none;
 // $topbar-link-bg-color-hover: #6F965D;
 $topbar-link-bg-active: #284f29;
 $topbar-link-bg-active-hover: #284f29;
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
-// $topbar-link-padding: ($topbar-height / 3);
+// $topbar-link-padding: ($topbar-height / 2);
 // $topbar-back-link-size: rem-calc(18);
 // $topbar-link-dropdown-padding: rem-calc(20);
 // $topbar-button-font-size: .75rem;
@@ -1463,7 +1463,7 @@ $topbar-link-bg-active-hover: #284f29;
 // $topbar-menu-icon-position: $opposite-direction; // Change to $default-float for a left menu icon
 
 // Transitions and breakpoint styles
-$topbar-transition-speed: 100ms;
+// $topbar-transition-speed: 100ms;
 // Using rem-calc for the below breakpoint causes issues with top bar
 // $topbar-breakpoint: #{lower-bound($medium-range)}; // Change to 9999px for always mobile layout
 // $topbar-media-query: "#{$screen} and (min-width:#{lower-bound($topbar-breakpoint)})";

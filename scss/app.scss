@@ -62,12 +62,26 @@ body {
   }
 }
 
-.top-bar-section ul li {
-  background-color: #fff;
-  margin-right: 10px;
+[data-magellan-expedition-clone] { display:none; }
+
+.top-bar-section li.active:not(.has-form) a:not(.button), .top-bar-section li:not(.has-form) a:not(.button) {
+  padding: 0.5rem 1.25rem;
 }
 
-.top-bar-section ul li a {
+.sub-nav li a:hover {
+  color: #126587;
+}
+
+.sub-nav li a {
+  color: #333;
+}
+
+.top-bar-section li {
+  background-color: #fff;
+  // margin-right: 5px;
+}
+
+.top-bar-section li a {
   border-radius: 3px;
 
 }
@@ -76,22 +90,28 @@ body {
   padding-bottom: 25px;
 }
 
-.top-bar-section ul li > a.button {
+.top-bar-section li > a.button {
   background-color: #fff;
   color: #333;
 
 }
 
-.top-bar-section ul .active > a.button {
-  background-color: #6F965D;
-  background-color: #284f29;
-  // background-color: #4A5C71;
-  color: #fff;
+.sub-nav {
+  overflow: visible;
 }
 
-.top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
-    background-color: #6F965D;
-    background-color: #284f29;
+
+
+// .top-bar-section .active > a.button {
+//   background-color: #6F965D;
+//   background-color: #284f29;
+//   // background-color: #4A5C71;
+//   color: #fff;
+// }
+
+.top-bar-section li > a.button:hover, .top-bar-section li > a.button:focus {
+    // background-color: #6F965D;
+    // background-color: #284f29;
   }
 
 .button {
@@ -110,6 +130,7 @@ body {
 
 .fixed {
    box-shadow: 1px 1px 1px 1px #eee;
+   padding: 0;
 }
 
 // .fixed .at-top {
@@ -154,7 +175,7 @@ nav {
 
 }
 
-.top-bar-section ul li {
+.top-bar-section li {
   font-family: "Lato", sans-serif;
 }
 
@@ -166,7 +187,7 @@ nav {
 
 #about {
 
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 #topContacts {

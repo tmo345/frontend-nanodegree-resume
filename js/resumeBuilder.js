@@ -1,4 +1,12 @@
-var bio = {
+var bio, // object - About section
+    work, // object - Work Experience section
+    education, // object - Education section
+    projects, // object - Projects section
+    menu, // object - navbar menu
+    inName; // function - internation name button
+
+
+bio = {
     'name': 'Timothy J. Moore',
     'role': 'Web Developer',
     'contacts': {
@@ -38,7 +46,7 @@ var bio = {
     }
 };
 
-var work = {
+work = {
     'jobs': [
         {
             'employer': 'Silver Cittern Web Development, LLC',
@@ -83,18 +91,25 @@ var work = {
     ],
     'display': function() {
         this.jobs.forEach(function(job){
+            var workName, // job.employer
+                workDates, // job.dates
+                workTitle, // job.title
+                workLocation; // job.location
+
+            workName = HTMLworkEmployer.replace('%data%', job.employer).replace('%link%', job.workURL);
+            workDates = HTMLworkDates.replace('%data%', job.dates);
+            workTitle = HTMLworkTitle.replace('%data%', job.title);
+            workLocation = HTMLworkLocation.replace('%data%', job.location);
+
             $('#workExperience .sectionMain').append(HTMLworkStart);
-            $('.work-entry:last').append(HTMLworkEmployer
-                .replace('%data%', job.employer)
-                .replace('%link%', job.workURL));
-            $('worl-entry:last').append(HTMLworkTitle.replace('%data%', job.title));
-            $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates) + HTMLworkLocation.replace('%data%', job.location));
+            $('.work-entry:last').append(workName + workDates);
+            $('.work-entry:last').append(workTitle + workLocation);
             $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
         });
     }
 };
 
-var education = {
+education = {
     'schools': [
         {
             'name': 'Medical College of Georgia',
@@ -179,7 +194,7 @@ var education = {
 
 };
 
-var projects = {
+projects = {
     'projects': [
         {
             'title': 'Horizon Eye Center',
@@ -213,6 +228,7 @@ var projects = {
         }
     ],
     'display': function() {
+        var projectNumber;
         // Projects display in boostrap columns
         // Use bootstrap clearfix divs to align different height project columns
 
@@ -221,7 +237,7 @@ var projects = {
         // Media query will hide all clearfixes and display clearfixes needed to
         //   align heights of project entries
 
-        var projectNumber = 1;
+        projectNumber = 1;
 
         this.projects.forEach(function(project) {
 
@@ -238,7 +254,7 @@ var projects = {
     }
 };
 
-var menu = {
+menu = {
     'menuItems': [
         {
             'section': 'About',
@@ -279,7 +295,7 @@ var menu = {
 
 
 
-var inName = function() {
+inName = function() {
     var nameArray = bio.name.trim().split(' ');
     nameArray[1] = nameArray[1].toUpperCase();
     nameArray[0] = nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase();

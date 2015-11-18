@@ -7,6 +7,9 @@ body {
   font-size: 18px;
   background-color: #404043;
   position: relative;  /* For scrollspy plugin */
+  width: 100%;
+
+  padding-top: 75px; /* Offset from fixed nav */
 }
 
 p {
@@ -95,9 +98,7 @@ article a {
 
 /* About */
 
-#about {
-  margin-top: 75px; /* Offset from fixed nav */
-}
+
 
 #topContacts {
   margin-bottom: 20px;
@@ -140,10 +141,6 @@ article a {
 
 .project-entry a:first-child {
   margin-bottom: 10px;
-}
-
-.project-entry p {
-  margin-bottom: 30px;
 }
 
 
@@ -194,6 +191,13 @@ footer {
 Media Queries
 ************/
 
+@media screen adn (min-width: 768px) {
+  .project-entry p {
+    margin-bottom: 30px;
+  }
+
+}
+
 /* Bootstrap "small" breakpoint addition */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   /* By default do not display all clearfix divs */
@@ -206,3 +210,4 @@ Media Queries
     display: block !important;
   }
 }
+

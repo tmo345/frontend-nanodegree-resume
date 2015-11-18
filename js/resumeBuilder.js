@@ -78,7 +78,7 @@ var work = {
     ],
     'display': function() {
         this.jobs.forEach(function(job){
-            $('#workExperience').append(HTMLworkStart);
+            $('#workExperience .sectionMain').append(HTMLworkStart);
             $('.work-entry:last').append(HTMLworkEmployer.replace('%data%', job.employer) + HTMLworkTitle.replace('%data%', job.title));
             $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates) + HTMLworkLocation.replace('%data%', job.location));
             $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
@@ -142,7 +142,7 @@ var education = {
     'display': function() {
         // Schools attended
         this.schools.forEach(function(school) {
-            $('#education').append(HTMLschoolStart);
+            $('#education .sectionMain').append(HTMLschoolStart);
 
             var schoolName = HTMLschoolName
                 .replace('%data%', school.name)
@@ -157,9 +157,9 @@ var education = {
         });
 
         // Online Courses
-        $('#education').append(HTMLonlineClasses);
+        $('#education .sectionMain').append(HTMLonlineClasses);
         this.onlineCourses.forEach(function(course) {
-            $('#education').append(HTMLonlineStart);
+            $('#education .sectionMain').append(HTMLonlineStart);
 
             var courseName = HTMLonlineTitle.replace('%data%', course.title).replace('#', course.url);
             var schoolName = HTMLonlineSchool.replace('%data%', course.school);
@@ -285,4 +285,4 @@ bio.display();
 work.display();
 projects.display();
 education.display();
-$('#mapDiv').append(googleMap);
+$('#mapDiv .sectionMain').append(googleMap);

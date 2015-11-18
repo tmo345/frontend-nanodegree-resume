@@ -4,11 +4,10 @@
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resume</title>
+  <title>Timothy Moore Resume</title>
   <link href='https://fonts.googleapis.com/css?family=Abel|Lato:400,700' rel='stylesheet' type='text/css'>
    <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/app.css" rel="stylesheet">
-
 </head>
 
 <body data-spy="scroll" data-target=".navbar-nav">
@@ -31,6 +30,7 @@
         </div>
       </nav>
     </header>
+
     <main>
 
       <div class="row">
@@ -93,7 +93,7 @@
       </footer>
 
     </main>
-  </div>
+  </div> <!-- container -->
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -103,7 +103,9 @@
   <script src="js/resumeBuilder.js"></script>
   <script src="js/scroll.js"></script>
   <script>
+    // Set offset for page location tracking to account for fixed nav
     $('body').scrollspy({offset:80});
+    // Refresh scrollspy for all items added with javascript
     $('[data-spy="scroll"]').each(function () {
       var $spy = $(this).scrollspy('refresh')
     })

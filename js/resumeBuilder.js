@@ -9,7 +9,6 @@ var bio = {
     'welcomeMessage': 'Hello, my name is Timothy Moore. I currently own and operate Silver Cittern Web Development, LLC in Augusta, GA. My primary focus is building websites for clients using WordPress and the Genesis Framework.',
     'skills': ['html', 'css', 'javascript', 'jquery', 'php', 'WordPress', 'Genesis Framework'],
     'image': 'images/Timothy_Moore.jpg',
-    // display method
     'display': function() {
         // $('#name-area').prepend(HTMLheaderRole.replace('%data%', this.role));
         $('.navbar-header').append(HTMLheaderName
@@ -18,8 +17,12 @@ var bio = {
 
         for (var contact in this.contacts) {
             if (this.contacts.hasOwnProperty(contact)) {
-                $('#topContacts').append(HTMLcontactGeneric.replace('%contact%', contact).replace('%data%', this.contacts[contact]));
-                $('#footerContacts').append(HTMLcontactGeneric.replace('%contact%', contact).replace('%data%', this.contacts[contact]));
+                $('#topContacts').append(HTMLcontactGeneric
+                    .replace('%contact%', contact)
+                    .replace('%data%', this.contacts[contact]));
+                $('#footerContacts').append(HTMLcontactGeneric
+                    .replace('%contact%', contact)
+                    .replace('%data%', this.contacts[contact]));
             }
         }
 
@@ -49,7 +52,7 @@ var work = {
             'title': 'Freelance Web Developer',
             'location': 'Augusta, GA',
             'dates': 'February 2015 - October 2015',
-            'description': 'Building and maintaining WordPress websites for businesses and organizations'
+            'description': 'Building and maintaining WordPress websites for businesses and organizations.'
         },
         {
             'employer': 'Medical College of Georgia at Georgia Regents University',
@@ -78,7 +81,6 @@ var work = {
             $('#workExperience').append(HTMLworkStart);
             $('.work-entry:last').append(HTMLworkEmployer.replace('%data%', job.employer) + HTMLworkTitle.replace('%data%', job.title));
             $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates) + HTMLworkLocation.replace('%data%', job.location));
-            // $('.work-entry:last').append();
             $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
         });
     }
@@ -97,7 +99,7 @@ var education = {
         {
             'name': 'University of Georgia',
             'location': 'Athens, Ga',
-            'degree': 'B.S. Microbiology',
+            'degree': 'B.S.',
             'majors': ['Microbiology'],
             'dates': 2005,
             'url': 'http://www.uga.edu'
@@ -142,9 +144,12 @@ var education = {
         this.schools.forEach(function(school) {
             $('#education').append(HTMLschoolStart);
 
-            var schoolName = HTMLschoolName.replace('%data%', school.name).replace('#', school.url);
+            var schoolName = HTMLschoolName
+                .replace('%data%', school.name)
+                .replace('#', school.url);
             var schoolDegree = HTMLschoolDegree.replace('%data%', school.degree);
             $('.education-entry:last').append(schoolName + schoolDegree);
+
             $('.education-entry:last').append(HTMLschoolDates.replace('%data%', school.dates) + HTMLschoolLocation.replace('%data%', school.location));
             for (var x = 0; x < school.majors.length; x++) {
                 $('.education-entry:last').append(HTMLschoolMajor.replace('%data%', school.majors[x]));
@@ -200,55 +205,25 @@ var projects = {
         }
     ],
     'display': function() {
-        // Using Foundation for grid based layout
-        // Need 3 projects per row
+        // Projects display in boostrap columns
+        // Use bootstrap clearfix divs to align different height project columns
 
-        // // Set numberOfProjects counter
-        // var numberOfProjectsCounter = 0;
+        // Track project number as we iterate over projects.projects[]
+        // We will use projectNumber to add project specific classes to each cleafix
+        // Media query will hide all clearfixes and display clearfixes needed to
+        //   align heights of project entries
 
-        // // Iterate over projects to increment to number of projects
-        // this.projects.forEach(function(project) {
-        //     numberOfProjectsCounter++;
-        // });
-
-        // // Calculate number of rows needed
-        // var numberOfRows = Math.ceil(numberOfProjectsCounter / 3);
-
-        // // Append the number of rows needed with class for row-n
-        // for (var i = 0; i < numberOfRows; i++) {
-        //     $('#projects').append('<div class="row row-' + (i + 1) + '"></div>');
-        // }
-
-        // // Keep track of rows and project numbers
-        // var rowCounter = 1;
         var projectNumber = 1;
 
-        // Append each project to the appropriate row
         this.projects.forEach(function(project) {
-            // Append project start to current row using .row-n class from above
-            // $('.row-' + rowCounter).append(HTMLprojectStart);
 
-            // Prevent final project from sliding to right in last row on some browsers
-            // if (projectNumber === numberOfProjectsCounter) {
-            //     $('.project-entry:last').addClass('end');
-            // }
-
-            // Append project information to last project entry
             $('.projectGrid').append(HTMLprojectStart);
-            $('.project-entry:last').addClass('project-' + projectNumber);
             $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', project.title));
             $('.project-entry:last').append(HTMLprojectDates.replace('%data%', project.dates));
-            $('.project-entry:last').append(HTMLprojectImage.replace('%data%', project.images));
+            $('.project-entry:last').append(HTMLprojectImage.replace('%data%', project.images[0]));
             $('.project-entry:last').append(HTMLprojectDescription.replace('%data%', project.description));
             if (window.innerHeight )
             $('.projectGrid').append('<div id="clearProject-' + projectNumber + '" class="clearfix visible-sm-block"></div>');
-
-            // Check to see if we are on first or second project in a row
-            // Odd project numbers are second in row, so we need to incredment rowCounter to ensure
-            // we append next project to the next row
-            // if (projectNumber % 3 === 0) {
-            //     rowCounter++;
-            // }
 
             projectNumber++;
         });
@@ -286,11 +261,7 @@ var menu = {
     ],
     'display': function() {
         this.menuItems.forEach(function(menuItem){
-            // $('.top-bar-section ul').append(HTMLheaderMenuStart
-            //         .replace('%dataAttr%', menuItem.class)
-            //         .replace('%dataMagellan%', menuItem.link.slice(1)));
             $('.navbar-nav').append(HTMLheaderMenuItem
-                    .replace('%dataMagellan%', menuItem.link.slice(1))
                     .replace('%link%', menuItem.link)
                     .replace('%data%', menuItem.section));
         });
@@ -309,15 +280,9 @@ var inName = function() {
 
 
 
-$('#mapDiv').append(googleMap);
-
-
+menu.display();
 bio.display();
 work.display();
 projects.display();
 education.display();
-menu.display();
-
-
-
-
+$('#mapDiv').append(googleMap);

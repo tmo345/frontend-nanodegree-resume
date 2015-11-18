@@ -1,0 +1,212 @@
+/************
+General
+************/
+
+body {
+  font-family: "Abel", sans-serif;
+  font-size: 18px;
+  background-color: #404043;
+  position: relative;  /* For scrollspy plugin */
+}
+
+p {
+  /*font-size: 16px;*/
+  color: #333;
+  line-height: 21px;
+}
+
+
+/************
+NavBar
+************/
+
+/* Name styles */
+
+#name {
+  margin-top: 0;
+}
+
+.navbar-default .navbar-brand {
+  font-family: "Abel", sans-serif;
+  font-size: 40px;
+  color: #333;
+}
+
+
+/************
+Sections
+************/
+
+/* General Section Styles */
+
+article {
+  padding: 0 0 25px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  margin-bottom: 30px;
+  width: 100%;
+  border-radius: 5px 5px 3px 3px;
+  box-shadow: 1.5px 1.5px 3px 1.5px #303033;
+}
+
+
+
+article .articleHeading {
+  background-color: #284f29;
+  font-family: "Abel", sans-serif;
+  border-radius: 3px 3px 0 0;
+  margin: 0 0 20px;
+  color: #fff;
+  padding: 20px 30px 10px;
+}
+
+article .sectionMain {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+article a {
+  color: #1147b2;
+}
+
+.date-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #444;
+  line-height: 16px;
+  /*float: left;*/
+}
+
+.location-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #999;
+  line-height: 16px;
+  float: right;
+  text-align: right;
+}
+
+#skills li {
+  display: inline-block;
+  padding: 5px;
+}
+
+
+/* About */
+
+#about {
+  margin-top: 75px; /* Offset from fixed nav */
+}
+
+#topContacts {
+  margin-bottom: 20px;
+}
+
+#topContacts li {
+  display: inline-block;
+}
+
+#topContacts span {
+  padding: 5px;
+}
+
+#topContacts .contact-category {
+  color: #1147b2;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.welcome-message {
+  /*font-style: italic;*/
+  font-size: 18px;
+  color: #333;
+  line-height: 28px;
+}
+
+/* Work */
+
+
+/* Projects */
+
+.clearDiv {
+  display: none;
+}
+
+#projects img {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.projectGrid {
+  list-style: none;
+}
+
+.project-entry a:first-child {
+  margin-bottom: 10px;
+}
+
+/*.project-entry p {
+  height: 75px;
+}*/
+
+
+/* Education */
+
+
+/* Locations - Where I've Lived and Worked */
+
+#map {
+  display: block;
+  height: 350px;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#mapDiv {
+  height: 450px;
+}
+
+#mapDiv h2 {
+    margin-bottom: 20px;
+}
+
+.orange-text {
+  color: #0b2f79;
+  color: #1147b2;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/************
+Footer
+************/
+
+footer {
+  margin-top: 70px;
+  clear: both;
+}
+
+#lets-connect {
+  text-align: center;
+}
+
+/************
+Media Queries
+************/
+
+/* Bootstrap "small" breakpoint addition */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* By default do not display all clearfix divs */
+  .visible-sm-block {
+    display: none !important;
+  }
+
+  /* Reveal clearfix divs as needed depending on number of projects */
+  #clearProject-2, #clearProject-4 {
+    display: block !important;
+  }
+}

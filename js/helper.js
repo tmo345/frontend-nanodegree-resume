@@ -40,7 +40,7 @@ var HTMLworkLocation = '<div class="location-text col-lg-5 col-md-5 col-sm-5">%d
 var HTMLworkDescription = '<div class="row"><p class="col-lg-12">%data%</p></div>';
 
 var HTMLprojectStart = '<li class="project-entry col-lg-4 col-md-4 col-sm-6"></li>';
-var HTMLprojectTitle = '<div class="row"><a href="#" class="col-lg-12">%data%</a></div>';
+var HTMLprojectTitle = '<div class="row"><a><h3 href="#" class="col-lg-12">%data%</h3></a></div>';
 var HTMLprojectDates = '<div class="row"><div class="date-text col-lg-12">%data%</div></div>';
 var HTMLprojectDescription = '<div class="row"><p class="col-lg-12">%data%</p></div>';
 var HTMLprojectImage = '<div class="row"><img src="%data%" class="col-lg-12"></div>';

@@ -129,10 +129,6 @@ article a {
 
 /* Projects */
 
-.clearDiv {
-  display: none;
-}
-
 #projects img {
   margin: 10px 0;
   width: 100%;
@@ -146,9 +142,9 @@ article a {
   margin-bottom: 10px;
 }
 
-/*.project-entry p {
-  height: 75px;
-}*/
+.project-entry p {
+  margin-bottom: 30px;
+}
 
 
 /* Education */

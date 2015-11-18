@@ -14,52 +14,51 @@ replace the %data% placeholder text you see in them.
 */
 
 // var HTMLheaderMenuStart = '<li data-magellan-arrival="%dataMagellan%" class="menu-item %dataAttr%"></li>';
-var HTMLheaderMenuItem = '<li data-magellan-arrival="%dataMagellan%"><a href="%link%">%data%</a></li>';
+var HTMLheaderMenuItem = '<li class="menu-item"><a href="%link%">%data%</a></li>';
 // var HTMLheaderMenuItem = '<a href="%link%">%data%</a>';
-
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
+var HTMLheaderName = '<h1 id="name"><a class="navbar-brand" href="%link%">%data%</a></h1>';
 var HTMLheaderRole = '<span>%data%</span>';
 
-var HTMLcontactGeneric = '<li class="flex-item large-4 columns"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="col-lg-4 columns col-md-4"><span class="contact-category">%contact%</span><span class="contact-information">%data%</span></li>';
+var HTMLmobile = '<li><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
+var HTMLtwitter = '<li><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
+var HTMLblog = '<li><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic large-2 columns">';
-var HTMLwelcomeMsg = '<span class="welcome-message large-12 columns">%data%</span>';
+var HTMLbioPic = '<img src="%data%" class="biopic col-lg-3 col-md-3 columns">';
+var HTMLwelcomeMsg = '<div class="row"><p class="welcome-message col-lg-12 columns">%data%</p></div>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box large-12 columns"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskillsStart = '<div class="row"><h3 id="skills-h3" class="col-lg-12">Skills at a Glance:</h3></div><div class="row"><ul id="skills" class="col-lg-12"></ul></div>';
+var HTMLskills = '<li><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<div class="row"><a href="#" class="large-12 columns">%data%';
+var HTMLworkEmployer = '<div class="row"><a href="#" class="col-lg-12 columns">%data%';
 var HTMLworkTitle = ' - %data%</a></div>';
-var HTMLworkDates = '<div class="row"><div class="date-text large-6 column">%data%</div>';
-var HTMLworkLocation = '<div class="location-text large-6 column">%data%</div></div>';
-var HTMLworkDescription = '<div class="row"><p class="large-12 columns">%data%</p></div>';
+var HTMLworkDates = '<div class="row"><div class="date-text col-lg-7 col-md-7 small-7 column">%data%</div>';
+var HTMLworkLocation = '<div class="location-text col-lg-5 col-md-5 small-5 column">%data%</div></div>';
+var HTMLworkDescription = '<div class="row"><p class="col-lg-12 columns">%data%</p></div>';
 
-var HTMLprojectStart = '<div class="project-entry large-6 columns"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p>%data%</p>';
-var HTMLprojectImage = '<img src="%data%" class="large-3 columns">';
+var HTMLprojectStart = '<li class="project-entry col-lg-4 col-md-4 col-sm-6"></li>';
+var HTMLprojectTitle = '<div class="row"><a href="#" class="col-lg-12">%data%</a></div>';
+var HTMLprojectDates = '<div class="row"><div class="date-text col-lg-12">%data%</div></div>';
+var HTMLprojectDescription = '<div class="row"><p class="col-lg-12">%data%</p></div>';
+var HTMLprojectImage = '<div class="row"><img src="%data%" class="col-lg-12"></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<div class="row"><a href="#" class="large-12 columns">%data%';
+var HTMLschoolName = '<div class="row"><a href="#" class="col-lg-12 columns">%data%';
 var HTMLschoolDegree = ' -- %data%</a></div>';
-var HTMLschoolDates = '<div class="row"><div class="date-text large-6 columns">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text large-6 columns">%data%</div></div>';
-var HTMLschoolMajor = '<div class="row"><p class="large-12 columns"><em>Major: %data%</em></p></div>';
+var HTMLschoolDates = '<div class="row"><div class="date-text col-lg-7 col-md-7 small-7 columns">%data%</div>';
+var HTMLschoolLocation = '<div class="location-text col-lg-5 col-md-5 small-5 columns">%data%</div></div>';
+var HTMLschoolMajor = '<div class="row"><p class="col-lg-12 columns"><em>Major: %data%</em></p></div>';
 
 var HTMLonlineStart = '<div class="online-entry"></div>';
-var HTMLonlineClasses = '<div class="row"><h3 class="large-12 columns">Online Classes</h3></div>';
-var HTMLonlineTitle = '<div class="row"><a href="#" class="large-12 columns">%data%';
+var HTMLonlineClasses = '<div class="row"><h3 class="col-lg-12 columns">Online Classes</h3></div>';
+var HTMLonlineTitle = '<div class="row"><a href="#" class="col-lg-12 columns">%data%';
 var HTMLonlineSchool = ' - %data%</a></div>';
-var HTMLonlineDates = '<div class="row"><div class="date-text large-12 columns">%data%</div></div>';
-var HTMLonlineURL = '<div class="row"><p class="large-12 columns"><a href="#">%data%</a></p><div>';
+var HTMLonlineDates = '<div class="row"><div class="date-text col-lg-12 columns">%data%</div></div>';
+var HTMLonlineURL = '<div class="row"><p class="col-lg-12 columns"><a href="#">%data%</a></p><div>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map" class="row"></div>';

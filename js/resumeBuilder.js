@@ -6,15 +6,15 @@ var bio = {
         'github': 'tmo345',
         'location': 'Augusta, GA'
     },
-    'welcomeMessage': 'Welcome to my resume.',
+    'welcomeMessage': 'Hello, my name is Timothy Moore. I currently own and operate Silver Cittern Web Development, LLC in Augusta, GA. My primary focus is building websites for clients using WordPress and the Genesis Framework.',
     'skills': ['html', 'css', 'javascript', 'jquery', 'php', 'WordPress', 'Genesis Framework'],
     'image': 'images/Timothy_Moore.jpg',
     // display method
     'display': function() {
         // $('#name-area').prepend(HTMLheaderRole.replace('%data%', this.role));
-        $('#name-area').prepend(HTMLheaderName.replace('%data%', this.name));
-        // button at bottom of page for internationalization of name
-        $('main').append(internationalizeButton);
+        $('.navbar-header').append(HTMLheaderName
+            .replace('%data%', this.name)
+            .replace('%link%', '/'));
 
         for (var contact in this.contacts) {
             if (this.contacts.hasOwnProperty(contact)) {
@@ -23,11 +23,11 @@ var bio = {
             }
         }
 
-        $('.welcome').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
+        $('.welcomeMessageSkills').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
         $('.biopicWelcome').prepend(HTMLbioPic.replace('%data%', this.image));
 
         if (this.skills.length > 0) {
-            $('.skills').append(HTMLskillsStart);
+            $('.welcomeMessageSkills').append(HTMLskillsStart);
             for (var x = 0; x < this.skills.length; x++) {
                 $('#skills').append(HTMLskills.replace('%data%', this.skills[x]));
             }
@@ -138,18 +138,20 @@ var education = {
 
     ],
     'display': function() {
+        // Schools attended
         this.schools.forEach(function(school) {
             $('#education').append(HTMLschoolStart);
 
             var schoolName = HTMLschoolName.replace('%data%', school.name).replace('#', school.url);
             var schoolDegree = HTMLschoolDegree.replace('%data%', school.degree);
             $('.education-entry:last').append(schoolName + schoolDegree);
-            // $('.education-entry:last').append(HTMLschoolLocation.replace('%data%', school.location) + HTMLschoolDates.replace('%data%', school.dates));
             $('.education-entry:last').append(HTMLschoolDates.replace('%data%', school.dates) + HTMLschoolLocation.replace('%data%', school.location));
             for (var x = 0; x < school.majors.length; x++) {
                 $('.education-entry:last').append(HTMLschoolMajor.replace('%data%', school.majors[x]));
             }
         });
+
+        // Online Courses
         $('#education').append(HTMLonlineClasses);
         this.onlineCourses.forEach(function(course) {
             $('#education').append(HTMLonlineStart);
@@ -167,77 +169,86 @@ var education = {
 var projects = {
     'projects': [
         {
-            'title': 'Horizon Eye Center Website',
-            'dates': 'Live November 2015',
+            'title': 'Horizon Eye Center',
+            'dates': 'November 2015',
             'description': 'Website for ophthalmologist practice built using Genesis Framework on WordPress. Customized Altitude Pro Genesis child theme. wwww.horizoneyecenter.com',
-            'images': ['images/HEC.jpg']
+            'images': ['images/HorizonEyeCenter.jpg']
         },
         {
-            'title': 'Portfolio - Udacity Front-End Web Developer Nanodegree',
+            'title': 'Portfolio',
             'dates': 'October 2015',
-            'description': 'Built and customized style of portfolio site from mockup',
-            'images': ['images/Portfolio-P1.jpg']
+            'description': 'Built and customized style of portfolio site from mockup as part of Udacity Front-End Web Developer Nanodegree.',
+            'images': ['images/PortfolioProject.jpg']
         },
         {
-            'title': 'Timothy J. Moore Portfolio Website',
-            'dates': 'Live October 2015, Maintained October 2015 - Present',
+            'title': 'Timothy J. Moore Portfolio',
+            'dates': 'October 2015',
             'description': 'Portfolio website and contact for Silver Cittern Web Development built using Genesis Framework on WordPress. Customized Modern Portfolio Pro Genesis child theme. www.timothymoore.me',
-            'images': ['images/timothymoore-500.jpg']
+            'images': ['images/TimothyMoorePortfolio.jpg']
         },
         {
-            'title': 'Augusta Retina Consultants Website',
-            'dates': 'Live May 2015, Maintained May 2015 - Present',
+            'title': 'Augusta Retina Consultants',
+            'dates': 'May 2015',
             'description': 'Website for ophthalmologist\'s practice built using Genesis Framework on WordPress. Customized Executive Pro Genesis child theme. www.augustaretina.com',
-            'images': ['images/Augusta_Retina-740x737.jpg']
+            'images': ['images/AugustaRetina.jpg']
         },
         {
-            'title': 'Mahmudah Institute of Wellness and Mindful Living Website',
-            'dates': 'Live March 2015, Maintained March 2015 - Present',
+            'title': 'Mahmudah Institute',
+            'dates': 'March 2015',
             'description': 'Website for nonprofit organization built using Genesis Framework on WordPress. Customized Outreach Pro Genesis child theme. www.mahmudahinstitute.org',
-            'images': ['images/Mahmudah_Institute_Featured-1-740x735.jpg']
+            'images': ['images/MahmudahInstitute.jpg']
         }
     ],
     'display': function() {
         // Using Foundation for grid based layout
-        // Need 2 projects per row
+        // Need 3 projects per row
 
-        // Set numberOfProjects counter
-        var numberOfProjectsCounter = 0;
+        // // Set numberOfProjects counter
+        // var numberOfProjectsCounter = 0;
 
-        // Iterate over projects to increment to number of projects
-        this.projects.forEach(function(project) {
-            numberOfProjectsCounter++;
-        });
+        // // Iterate over projects to increment to number of projects
+        // this.projects.forEach(function(project) {
+        //     numberOfProjectsCounter++;
+        // });
 
-        // Calculate number of rows needed
-        var numberOfRows = Math.ceil(numberOfProjectsCounter / 2);
+        // // Calculate number of rows needed
+        // var numberOfRows = Math.ceil(numberOfProjectsCounter / 3);
 
-        // Append the number of rows needed with class for row-n
-        for (var i = 0; i < numberOfRows; i++) {
-            $('#projects').append('<div class="row row-' + (i + 1) + '"></div>');
-        }
+        // // Append the number of rows needed with class for row-n
+        // for (var i = 0; i < numberOfRows; i++) {
+        //     $('#projects').append('<div class="row row-' + (i + 1) + '"></div>');
+        // }
 
-        // Keep track of rows and project numbers
-        var rowCounter = 1;
-        var projectNumber = 0;
+        // // Keep track of rows and project numbers
+        // var rowCounter = 1;
+        var projectNumber = 1;
 
         // Append each project to the appropriate row
         this.projects.forEach(function(project) {
             // Append project start to current row using .row-n class from above
-            $('.row-' + rowCounter).append(HTMLprojectStart);
+            // $('.row-' + rowCounter).append(HTMLprojectStart);
+
+            // Prevent final project from sliding to right in last row on some browsers
+            // if (projectNumber === numberOfProjectsCounter) {
+            //     $('.project-entry:last').addClass('end');
+            // }
 
             // Append project information to last project entry
+            $('.projectGrid').append(HTMLprojectStart);
+            $('.project-entry:last').addClass('project-' + projectNumber);
             $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', project.title));
             $('.project-entry:last').append(HTMLprojectDates.replace('%data%', project.dates));
-            $('.project-entry:last').append(HTMLprojectDescription.replace('%data%', project.description));
             $('.project-entry:last').append(HTMLprojectImage.replace('%data%', project.images));
+            $('.project-entry:last').append(HTMLprojectDescription.replace('%data%', project.description));
+            if (window.innerHeight )
+            $('.projectGrid').append('<div id="clearProject-' + projectNumber + '" class="clearfix visible-sm-block"></div>');
 
             // Check to see if we are on first or second project in a row
             // Odd project numbers are second in row, so we need to incredment rowCounter to ensure
             // we append next project to the next row
-            if (projectNumber % 2 !== 0) {
-                rowCounter++;
-            }
+            // if (projectNumber % 3 === 0) {
+            //     rowCounter++;
+            // }
 
             projectNumber++;
         });
@@ -252,7 +263,7 @@ var menu = {
             'class': 'aboutMenu'
         },
         {
-            'section': 'Work Experience',
+            'section': 'Work',
             'link': '#workExperience',
             'class': 'workMenu'
         },
@@ -267,7 +278,7 @@ var menu = {
             'class': 'educationMenu'
         },
         {
-            'section': 'Places Lived & Worked',
+            'section': 'Locations',
             'link': '#mapDiv',
             'class': 'mapMenu'
         }
@@ -278,7 +289,7 @@ var menu = {
             // $('.top-bar-section ul').append(HTMLheaderMenuStart
             //         .replace('%dataAttr%', menuItem.class)
             //         .replace('%dataMagellan%', menuItem.link.slice(1)));
-            $('.top-bar-section').append(HTMLheaderMenuItem
+            $('.navbar-nav').append(HTMLheaderMenuItem
                     .replace('%dataMagellan%', menuItem.link.slice(1))
                     .replace('%link%', menuItem.link)
                     .replace('%data%', menuItem.section));

@@ -45,41 +45,49 @@ var work = {
             'title': 'Owner and Web Developer',
             'location': 'Augusta, Ga',
             'dates': 'October 2015 - Present',
-            'description': 'Own and operate business and build/maintain WordPress websites for businesses and organizations.'
+            'description': 'Own and operate business and build/maintain WordPress websites for businesses and organizations.',
+            'workURL': 'http://www.timothymoore.me'
         },
                 {
-            'employer': 'Self-employed',
+            'employer': 'Freelancer',
             'title': 'Freelance Web Developer',
             'location': 'Augusta, GA',
             'dates': 'February 2015 - October 2015',
-            'description': 'Building and maintaining WordPress websites for businesses and organizations.'
+            'description': 'Building and maintaining WordPress websites for businesses and organizations.',
+            'workURL': 'http://www.timothymoore.me'
         },
         {
             'employer': 'Medical College of Georgia at Georgia Regents University',
             'title': 'Consultant',
             'location': 'Augusta, GA',
             'dates': 'December 2013 - June 2015',
-            'description': 'Wrote and developed online course materials for third year medical student clerkships.'
+            'description': 'Wrote and developed online course materials for third year medical student clerkships.',
+            'workURL': 'http://www.gru.edu/mcg/'
         },
         {
             'employer': 'Grovetown High School',
             'title': 'Science Teacher',
             'location': 'Grovetown, GA',
             'dates': 'August 2012 - April 2013',
-            'description': 'Taught Environmental Science and Biology to high school freshman and sophomores.'
+            'description': 'Taught Environmental Science and Biology to high school freshman and sophomores.',
+            'workURL': 'http://www.edline.net/pages/Grovetown_High'
         },
         {
             'employer': 'Wake Forest University Baptist Medical Center',
             'title': 'Pediatrics Resident Physician',
             'location': 'Winston-Salem, NC',
             'dates': 'July 2009 - June 2011',
-            'description': 'Physician in pediatrics residency training program. Duties included care of patients in both inpatient and outpatient settings.'
+            'description': 'Physician in pediatrics residency training program. Duties included care of patients in both inpatient and outpatient settings.',
+            'workURL': 'http://www.wakehealth.edu/'
         }
     ],
     'display': function() {
         this.jobs.forEach(function(job){
             $('#workExperience .sectionMain').append(HTMLworkStart);
-            $('.work-entry:last').append(HTMLworkEmployer.replace('%data%', job.employer) + HTMLworkTitle.replace('%data%', job.title));
+            $('.work-entry:last').append(HTMLworkEmployer
+                .replace('%data%', job.employer)
+                .replace('%link%', job.workURL));
+            $('worl-entry:last').append(HTMLworkTitle.replace('%data%', job.title));
             $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates) + HTMLworkLocation.replace('%data%', job.location));
             $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
         });

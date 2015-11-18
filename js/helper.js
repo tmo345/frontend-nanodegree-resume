@@ -33,7 +33,7 @@ var HTMLskillsStart = '<div class="row"><h3 id="skills-h3" class="col-lg-12">Ski
 var HTMLskills = '<li><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<div class="row"><a href="#" ><h4 class="col-lg-12">%data%</h4></a></div>';
+var HTMLworkEmployer = '<div class="row"><a href="%link%"><h4 class="col-lg-12">%data%</h4></a></div>';
 var HTMLworkTitle = '<div class="row"><p class="col-lg-12">%data%</p></div>';
 var HTMLworkDates = '<div class="row"><div class="date-text col-lg-7 col-md-7 small-7 column">%data%</div>';
 var HTMLworkLocation = '<div class="location-text col-lg-5 col-md-5 col-sm-5">%data%</div></div>';

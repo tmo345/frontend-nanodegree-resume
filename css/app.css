@@ -101,6 +101,7 @@ article a {
   color: #444;
   line-height: 16px;
   /*float: left;*/
+  margin-top: 12.5px;
 }
 
 .location-text {
@@ -108,8 +109,8 @@ article a {
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: right;
-  text-align: right;
+  /*float: right;*/
+  /*text-align: right;*/
 }
 
 #skills li {
@@ -149,6 +150,14 @@ article a {
 
 /* Work */
 
+#workExperience h3 {
+  margin-bottom: 10px;
+}
+
+.employerHeading {
+  font-size: 22px;
+  margin-top: 10px;
+}
 
 /* Projects */
 

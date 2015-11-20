@@ -1,98 +1,54 @@
-    // Header
-var HTMLheaderMenuItem,
-    HTMLheaderName,
-    HTMLheaderRole,
-    // About
-    HTMLcontactGeneric,
-    HTMLbioPic,
-    HTMLwelcomeMsg,
-    HTMLskillsStart,
-    HTMLskills,
-    // Work
-    HTMLworkStart,
-    HTMLworkEmployer,
-    HTMLworkDates,
-    HTMLworkTitle,
-    HTMLworkLocation,
-    HTMLworkDescription,
-    // Projects
-    HTMLprojectStart,
-    HTMLprojectTitle,
-    HTMLprojectDates,
-    HTMLprojectDescription,
-    HTMLprojectImage,
-    // Education
-      // Schools
-      HTMLschoolStart,
-      HTMLschoolName,
-      HTMLschoolDegree,
-      HTMLschoolDates,
-      HTMLschoolLocation,
-      HTMLschoolMajor,
-      // Online Classes
-      HTMLonlineStart,
-      HTMLonlineClasses,
-      HTMLonlineTitle,
-      HTMLonlineSchool,
-      HTMLonlineDates,
-      HTMLonlineURL,
-    // International Button
-    internationalizeButton,
-    // Click Location
-    clickLocations,
-    // Google map
-    googleMap, // HTML for map div
-    map; // global map variable for Google map API
+// HTML structure for resume components
 
 // Header
-HTMLheaderMenuItem = '<li class="menu-item"><a href="%link%">%data%</a></li>';
-HTMLheaderName = '<h1 id="name"><a class="navbar-brand" href="%link%">%data%</a></h1>';
-HTMLheaderRole = '<span>%data%</span>';
+var HTMLheaderMenuItem = '<li class="menu-item"><a href="%link%">%data%</a></li>';
+var HTMLheaderName = '<h1 id="name"><a class="navbar-brand" href="%link%">%data%</a></h1>';
+var HTMLheaderRole = '<span>%data%</span>';
 
 // About
-HTMLcontactGeneric = '<li class="col-lg-4 col-md-4"><span class="contact-category">%contact%</span><span class="contact-information">%data%</span></li>';
-HTMLbioPic = '<img src="%data%" class="biopic col-lg-3 col-md-3">';
-HTMLwelcomeMsg = '<div class="row"><p class="welcome-message col-lg-12">%data%</p></div>';
-HTMLskillsStart = '<div class="row"><h3 id="skills-h3" class="col-lg-12">Skills at a Glance:</h3></div><div class="row"><ul id="skills" class="col-lg-12"></ul></div>';
-HTMLskills = '<li><span class="white-text">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="col-lg-4 col-md-4"><span class="contact-var category">%contact%</span><span class="contact-information">%data%</span></li>';
+var HTMLbioPic = '<img src="%data%" class="biopic col-lg-3 col-md-3">';
+var HTMLwelcomeMsg = '<div class="row"><p class="welcome-message col-lg-12">%data%</p></div>';
+var HTMLskillsStart = '<div class="row"><h3 id="skills-h3" class="col-lg-12">Skills at a var Glance:</h3></div><div class="row"><ul id="skills" class="col-lg-12"></ul></div>';
+var HTMLskills = '<li><span class="white-text">%data%</span></li>';
 
 // Work
-HTMLworkStart = '<div class="work-entry"></div>';
-HTMLworkEmployer = '<div class="row"><h3 class="col-lg-8 col-md-8 employerHeading"><a href="%link%">%data%</a></h3>';
-HTMLworkDates = '<p class="date-text col-lg-4 col-md-4">%data%</p></div>';
-HTMLworkTitle = '<div class="row"><p class="col-lg-8">%data%</p>';
-HTMLworkLocation = '<div class="location-text col-lg-4 col-md-4 col-sm-4">%data%</div></div>';
-HTMLworkDescription = '<div class="row"><p class="col-lg-12">%data%</p></div>';
+var HTMLworkStart = '<div class="work-entry"></div>';
+var HTMLworkEmployer = '<div class="row"><h3 class="col-lg-9 col-md-9 col-sm-8 var employerHeading"><a href="%link%">%data%</a></h3>';
+var HTMLworkDates = '<p class="date-text col-lg-3 col-md-3 col-sm-4">%data%</p></div>';
+var HTMLworkTitle = '<div class="row"><p class="col-lg-12">%data%</p></div>';
+var HTMLworkLocation = '<div class="row"><div class="location-text col-lg-12">%data%</div></var div>';
+var HTMLworkDescription = '<div class="row"><p class="col-lg-12">%data%</p></div>';
 
 // Projects
-HTMLprojectStart = '<li class="project-entry col-lg-4 col-md-4 col-sm-6"></li>';
-HTMLprojectTitle = '<div class="row"><a href="#"><h3 class="col-lg-12">%data%</h3></a></div>';
-HTMLprojectDates = '<div class="row"><div class="date-text col-lg-12">%data%</div></div>';
-HTMLprojectDescription = '<div class="row"><p class="col-lg-12">%data%</p></div>';
-HTMLprojectImage = '<div class="row"><img src="%data%" class="col-lg-12"></div>';
+var HTMLprojectStart = '<li class="project-entry col-lg-4 col-md-4 col-sm-6"></li>';
+var HTMLprojectTitle = '<div class="row"><a href="#"><h3 class="col-lg-12">%data%</h3></a></var div>';
+var HTMLprojectDates = '<div class="row"><div class="date-text col-lg-12">%data%</div></div>';
+var HTMLprojectDescription = '<div class="row"><p class="col-lg-12">%data%</p></div>';
+var HTMLprojectImage = '<div class="row"><img src="%data%" class="col-lg-12"></div>';
 
 // Education
 // Schools
-HTMLschoolStart = '<div class="education-entry"></div>';
-HTMLschoolName = '<div class="row"><a href="#" class="col-lg-12">%data%';
-HTMLschoolDegree = ' -- %data%</a></div>';
-HTMLschoolDates = '<div class="row"><div class="date-text col-lg-7 col-md-7 small-7">%data%</div>';
-HTMLschoolLocation = '<div class="location-text col-lg-5 col-md-5 small-5">%data%</div></div>';
-HTMLschoolMajor = '<div class="row"><p class="col-lg-12"><em>Major: %data%</em></p></div>';
+var HTMLschoolStart = '<div class="education-entry"></div>';
+var HTMLschoolName = '<div class="row"><a href="#" class="col-lg-12">%data%';
+var HTMLschoolDegree = ' -- %data%</a></div>';
+var HTMLschoolDates = '<div class="row"><div class="date-text col-lg-7 col-md-7 var small-7">%data%</div>';
+var HTMLschoolLocation = '<div class="location-text col-lg-5 col-md-5 small-5">%data%</div></var div>';
+var HTMLschoolMajor = '<div class="row"><p class="col-lg-12"><em>Major: %data%</em></p></div>';
 
 // Online Courses
-HTMLonlineStart = '<div class="online-entry"></div>';
-HTMLonlineClasses = '<div class="row"><h3 class="col-lg-12">Online Classes</h3></div>';
-HTMLonlineTitle = '<div class="row"><a href="#" class="col-lg-12">%data%';
-HTMLonlineSchool = ' - %data%</a></div>';
-HTMLonlineDates = '<div class="row"><div class="date-text col-lg-12">%data%</div></div>';
-HTMLonlineURL = '<div class="row"><p class="col-lg-12"><a href="#">%data%</a></p><div>';
+var HTMLonlineStart = '<div class="online-entry"></div>';
+var HTMLonlineClasses = '<div class="row"><h3 class="col-lg-12">Online Classes</h3></div>';
+var HTMLonlineTitle = '<div class="row"><a href="#" class="col-lg-12">%data%';
+var HTMLonlineSchool = ' - %data%</a></div>';
+var HTMLonlineDates = '<div class="row"><div class="date-text col-lg-12">%data%</div></div>';
+var HTMLonlineURL = '<div class="row"><p class="col-lg-12"><a href="#">%data%</a></p><div>';
 
 // International Button
-internationalizeButton = '<button>Internationalize</button>';
+var internationalizeButton = '<button>Internationalize</button>';
 
 // Google map
-googleMap = '<div id="map" class="row"></div>';
+var googleMap = '<div id="map" class="row"></div>';
 
 
 /*
@@ -109,7 +65,7 @@ $(document).ready(function() {
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */
-clickLocations = [];
+var clickLocations = [];
 
 function logClicks(x,y) {
   clickLocations.push(
@@ -132,7 +88,7 @@ This is the fun part. Here's where we generate the custom Google Map for the web
 See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
-
+var map; // global map variable for Google map API
 /*
 Start here! initializeMap() is called when page is loaded.
 */
@@ -190,9 +146,7 @@ function initializeMap() {
         name, // name of the place from the place service
         bounds, // current boundaries of the map window
         marker, // object with additional data about the pin for a single location
-        infoWindow; // infoWindows are the little helper windows that open when you click
-                    // or hover over a pin on a map. They usually contain more information
-                    // about a location.
+        infoWindow; // helper window over pin on hover or click
 
     // The next lines save location data from the search result object to local variables
     lat = placeData.geometry.location.lat();

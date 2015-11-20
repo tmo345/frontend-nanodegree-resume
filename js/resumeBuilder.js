@@ -14,35 +14,39 @@ bio = {
         'github': 'tmo345',
         'location': 'Augusta, GA'
     },
-    'welcomeMessage': 'Hello, my name is Timothy Moore. I currently own and operate Silver Cittern Web Development, LLC in Augusta, GA. My primary focus is building websites for clients using WordPress and the Genesis Framework.',
+    'welcomeMessage': 'Hello, my name is Timothy Moore. I own and operate Silver Cittern Web Development, LLC in Augusta, GA. My primary focus is building websites for clients using WordPress and the Genesis Framework.',
     'skills': ['html', 'css', 'javascript', 'jquery', 'php', 'WordPress', 'Genesis Framework'],
     'image': 'images/Timothy_Moore.jpg',
     'display': function() {
-        // $('#name-area').prepend(HTMLheaderRole.replace('%data%', this.role));
-        $('.navbar-header').append(HTMLheaderName
-            .replace('%data%', this.name)
-            .replace('%link%', '/'));
 
-        for (var contact in this.contacts) {
-            if (this.contacts.hasOwnProperty(contact)) {
-                $('#topContacts').append(HTMLcontactGeneric
-                    .replace('%contact%', contact)
-                    .replace('%data%', this.contacts[contact]));
-                $('#footerContacts').append(HTMLcontactGeneric
-                    .replace('%contact%', contact)
-                    .replace('%data%', this.contacts[contact]));
+        var bioName = HTMLheaderName
+                    .replace('%data%', this.name)
+                    .replace('%link%', '/');
+        var bioImage = HTMLbioPic.replace('%data%', this.image);
+        var bioMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
+
+        $('.navbar-header').append(bioName); // Append to navbar
+        $('.biopicWelcome').prepend(bioImage);
+        $('.welcomeMessageSkills').append(bioMessage);
+        $('.welcomeMessageSkills').append(HTMLskillsStart);
+
+
+        for (var contact in bio.contacts) {
+            var bioContactEntry = HTMLcontactGeneric
+                                    .replace('%contact%', contact)
+                                    .replace('%data%', this.contacts[contact]);
+
+            if (bio.contacts.hasOwnProperty(contact)) {
+                $('#topContacts').append(bioContactEntry);
+                $('#footerContacts').append(bioContactEntry);
             }
         }
 
-        $('.welcomeMessageSkills').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
-        $('.biopicWelcome').prepend(HTMLbioPic.replace('%data%', this.image));
+        this.skills.forEach(function(skill) {
+            var bioSkillEntry = HTMLskills.replace('%data%', skill);
 
-        if (this.skills.length > 0) {
-            $('.welcomeMessageSkills').append(HTMLskillsStart);
-            for (var x = 0; x < this.skills.length; x++) {
-                $('#skills').append(HTMLskills.replace('%data%', this.skills[x]));
-            }
-        }
+            $('#skills').append(bioSkillEntry);
+        });
     }
 };
 
@@ -91,20 +95,20 @@ work = {
     ],
     'display': function() {
         this.jobs.forEach(function(job){
-            var workName, // job.employer
-                workDates, // job.dates
-                workTitle, // job.title
-                workLocation; // job.location
 
-            workName = HTMLworkEmployer.replace('%data%', job.employer).replace('%link%', job.workURL);
-            workDates = HTMLworkDates.replace('%data%', job.dates);
-            workTitle = HTMLworkTitle.replace('%data%', job.title);
-            workLocation = HTMLworkLocation.replace('%data%', job.location);
+            var workName = HTMLworkEmployer
+                        .replace('%data%', job.employer)
+                        .replace('%link%', job.workURL);
+            var workDates = HTMLworkDates.replace('%data%', job.dates);
+            var workTitle = HTMLworkTitle.replace('%data%', job.title);
+            var workLocation = HTMLworkLocation.replace('%data%', job.location);
+            var workDescription = HTMLworkDescription.replace('%data%', job.description);
 
             $('#workExperience .sectionMain').append(HTMLworkStart);
             $('.work-entry:last').append(workName + workDates);
-            $('.work-entry:last').append(workTitle + workLocation);
-            $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
+            $('.work-entry:last').append(workLocation);
+            $('.work-entry:last').append(workTitle);
+            $('.work-entry:last').append(workDescription);
         });
     }
 };
@@ -168,15 +172,20 @@ education = {
             $('#education .sectionMain').append(HTMLschoolStart);
 
             var schoolName = HTMLschoolName
-                .replace('%data%', school.name)
-                .replace('#', school.url);
+                                .replace('%data%', school.name)
+                                .replace('#', school.url);
             var schoolDegree = HTMLschoolDegree.replace('%data%', school.degree);
-            $('.education-entry:last').append(schoolName + schoolDegree);
+            var schoolDates = HTMLschoolDates.replace('%data%', school.dates);
+            var schoolLocation = HTMLschoolLocation.replace('%data%', school.location);
 
-            $('.education-entry:last').append(HTMLschoolDates.replace('%data%', school.dates) + HTMLschoolLocation.replace('%data%', school.location));
-            for (var x = 0; x < school.majors.length; x++) {
-                $('.education-entry:last').append(HTMLschoolMajor.replace('%data%', school.majors[x]));
-            }
+
+            $('.education-entry:last').append(schoolName + schoolDegree);
+            $('.education-entry:last').append(schoolDates + schoolLocation);
+
+            school.majors.forEach(function(major) {
+                var schoolMajors = HTMLschoolMajor.replace('%data%', major);
+                $('.education-entry:last').append(schoolMajors);
+            });
         });
 
         // Online Courses
@@ -186,9 +195,12 @@ education = {
 
             var courseName = HTMLonlineTitle.replace('%data%', course.title).replace('#', course.url);
             var schoolName = HTMLonlineSchool.replace('%data%', course.school);
+            var courseDates = HTMLonlineDates.replace('%data%', course.dates);
+            var courseURL = HTMLonlineURL.replace('%data%', course.url);
+
             $('.online-entry:last').append(courseName + schoolName);
-            $('.online-entry:last').append(HTMLonlineDates.replace('%data%', course.dates));
-            $('.online-entry:last').append(HTMLonlineURL.replace('%data%', course.url));
+            $('.online-entry:last').append(courseDates);
+            $('.online-entry:last').append(courseURL);
         });
     }
 
@@ -200,35 +212,35 @@ projects = {
             'title': 'Horizon Eye Center',
             'dates': 'November 2015',
             'description': 'Website for ophthalmologist practice built using Genesis Framework on WordPress. Customized Altitude Pro Genesis child theme. wwww.horizoneyecenter.com',
-            'images': ['images/HorizonEyeCenter.jpg']
+            'image': 'images/HorizonEyeCenter.jpg'
         },
         {
             'title': 'Portfolio',
             'dates': 'October 2015',
             'description': 'Built and customized style of portfolio site from mockup as part of Udacity Front-End Web Developer Nanodegree.',
-            'images': ['images/PortfolioProject.jpg']
+            'image': 'images/PortfolioProject.jpg'
         },
         {
             'title': 'Timothy J. Moore Portfolio',
             'dates': 'October 2015',
             'description': 'Portfolio website and contact for Silver Cittern Web Development built using Genesis Framework on WordPress. Customized Modern Portfolio Pro Genesis child theme. www.timothymoore.me',
-            'images': ['images/TimothyMoorePortfolio.jpg']
+            'image': 'images/TimothyMoorePortfolio.jpg'
         },
         {
             'title': 'Augusta Retina Consultants',
             'dates': 'May 2015',
             'description': 'Website for ophthalmologist\'s practice built using Genesis Framework on WordPress. Customized Executive Pro Genesis child theme. www.augustaretina.com',
-            'images': ['images/AugustaRetina.jpg']
+            'image': 'images/AugustaRetina.jpg'
         },
         {
             'title': 'Mahmudah Institute',
             'dates': 'March 2015',
             'description': 'Website for nonprofit organization built using Genesis Framework on WordPress. Customized Outreach Pro Genesis child theme. www.mahmudahinstitute.org',
-            'images': ['images/MahmudahInstitute.jpg']
+            'image': 'images/MahmudahInstitute.jpg'
         }
     ],
     'display': function() {
-        var projectNumber;
+
         // Projects display in boostrap columns
         // Use bootstrap clearfix divs to align different height project columns
 
@@ -237,16 +249,21 @@ projects = {
         // Media query will hide all clearfixes and display clearfixes needed to
         //   align heights of project entries
 
-        projectNumber = 1;
+        var projectNumber = 1;
 
         this.projects.forEach(function(project) {
 
+            var projectTitle = HTMLprojectTitle.replace('%data%', project.title);
+            var projectDates = HTMLprojectDates.replace('%data%', project.dates);
+            var projectImage = HTMLprojectImage.replace('%data%', project.image);
+            var projectDescription = HTMLprojectDescription.replace('%data%', project.description);
+
             $('.projectGrid').append(HTMLprojectStart);
-            $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', project.title));
-            $('.project-entry:last').append(HTMLprojectDates.replace('%data%', project.dates));
-            $('.project-entry:last').append(HTMLprojectImage.replace('%data%', project.images[0]));
-            $('.project-entry:last').append(HTMLprojectDescription.replace('%data%', project.description));
-            if (window.innerHeight )
+            $('.project-entry:last').append(projectTitle);
+            $('.project-entry:last').append(projectDates);
+            $('.project-entry:last').append(projectImage);
+            $('.project-entry:last').append(projectDescription);
+
             $('.projectGrid').append('<div id="clearProject-' + projectNumber + '" class="clearfix visible-sm-block"></div>');
 
             projectNumber++;
@@ -284,10 +301,11 @@ menu = {
 
     ],
     'display': function() {
-        this.menuItems.forEach(function(menuItem){
-            $('.navbar-nav').append(HTMLheaderMenuItem
-                    .replace('%link%', menuItem.link)
-                    .replace('%data%', menuItem.section));
+        this.menuItems.forEach(function(menuItem) {
+            var menuItem = HTMLheaderMenuItem
+                            .replace('%link%', menuItem.link)
+                            .replace('%data%', menuItem.section);
+            $('.navbar-nav').append(menuItem);
         });
     }
 };

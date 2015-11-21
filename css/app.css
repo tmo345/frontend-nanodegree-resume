@@ -9,7 +9,7 @@ body {
   position: relative;  /* For scrollspy plugin */
   width: 100%;
 
-  padding-top: 75px; /* Offset from fixed nav */
+  padding-top: 90px; /* Offset from fixed nav */
 }
 
 p {
@@ -55,6 +55,8 @@ NavBar
 .navbar-nav>li>a {
     margin-top: 10px;
     padding: 10px 12.5px;
+    min-width: 60px;
+    text-align: center;
 }
 
 

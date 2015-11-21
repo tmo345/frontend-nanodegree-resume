@@ -9,7 +9,7 @@ var HTMLheaderRole = '<span>%data%</span>';
 var HTMLcontactGeneric = '<li class="col-lg-4 col-md-4"><span class="contact-var category">%contact%</span><span class="contact-information">%data%</span></li>';
 var HTMLbioPic = '<img src="%data%" class="biopic col-lg-3 col-md-3">';
 var HTMLwelcomeMsg = '<div class="row"><p class="welcome-message col-lg-12">%data%</p></div>';
-var HTMLskillsStart = '<div class="row"><h3 id="skills-h3" class="col-lg-12">Skills at a var Glance:</h3></div><div class="row"><ul id="skills" class="col-lg-12"></ul></div>';
+var HTMLskillsStart = '<div class="row"><h3 id="skills-h3" class="col-lg-12">Skills at a Glance:</h3></div><div class="row"><ul id="skills" class="col-lg-12"></ul></div>';
 var HTMLskills = '<li><span class="white-text">%data%</span></li>';
 
 // Work

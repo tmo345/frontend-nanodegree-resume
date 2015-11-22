@@ -12,7 +12,7 @@ bio = {
     'contacts': {
         'email': 'tim@timothymoore.me',
         'github': 'tmo345',
-        'location': 'Augusta, GA'
+        'website': 'www.timothymoore.me'
     },
     'welcomeMessage': 'Hello, my name is Timothy Moore. I own and operate Silver Cittern Web Development, LLC in Augusta, GA. My primary focus is building websites for clients using WordPress and the Genesis Framework.',
     'skills': ['html', 'css', 'javascript', 'jquery', 'php', 'WordPress', 'Genesis Framework'],

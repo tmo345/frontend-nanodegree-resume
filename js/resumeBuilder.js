@@ -57,7 +57,7 @@ work = {
             'title': 'Owner and Web Developer',
             'location': 'Augusta, Ga',
             'dates': 'October 2015 - Present',
-            'description': 'Own and operate business and build/maintain WordPress websites for businesses and organizations.',
+            'description': 'Building and maintaining WordPress websites for businesses and organizations.',
             'workURL': 'http://www.timothymoore.me'
         },
                 {
@@ -69,7 +69,7 @@ work = {
             'workURL': 'http://www.timothymoore.me'
         },
         {
-            'employer': 'Medical College of Georgia at Georgia Regents University',
+            'employer': 'Medical College of Georgia',
             'title': 'Consultant',
             'location': 'Augusta, GA',
             'dates': 'December 2013 - June 2015',
@@ -85,7 +85,7 @@ work = {
             'workURL': 'http://www.edline.net/pages/Grovetown_High'
         },
         {
-            'employer': 'Wake Forest University Baptist Medical Center',
+            'employer': 'Wake Forest Baptist Medical Center',
             'title': 'Pediatrics Resident Physician',
             'location': 'Winston-Salem, NC',
             'dates': 'July 2009 - June 2011',
@@ -96,19 +96,22 @@ work = {
     'display': function() {
         this.jobs.forEach(function(job){
 
+            var workTitle = HTMLworkTitle.replace('%data%', job.title);
             var workName = HTMLworkEmployer
                         .replace('%data%', job.employer)
-                        .replace('%link%', job.workURL);
+                        .replace('%link%', job.workURL)
+                        .replace('%title%', workTitle);
             var workDates = HTMLworkDates.replace('%data%', job.dates);
-            var workTitle = HTMLworkTitle.replace('%data%', job.title);
             var workLocation = HTMLworkLocation.replace('%data%', job.location);
             var workDescription = HTMLworkDescription.replace('%data%', job.description);
 
             $('#workExperience .sectionMain').append(HTMLworkStart);
-            $('.work-entry:last').append(workName + workDates);
-            $('.work-entry:last').append(workLocation);
-            $('.work-entry:last').append(workTitle);
-            $('.work-entry:last').append(workDescription);
+            $('.work-entry:last .section-heading').append(workName);
+            $('.work-entry:last .section-dates').append(workDates);
+            $('.work-entry:last .section-location').append(workLocation);
+            $('.work-entry:last .section-description').append(workDescription);
+
+
         });
     }
 };
@@ -177,15 +180,19 @@ education = {
             var schoolDegree = HTMLschoolDegree.replace('%data%', school.degree);
             var schoolDates = HTMLschoolDates.replace('%data%', school.dates);
             var schoolLocation = HTMLschoolLocation.replace('%data%', school.location);
+            var schoolMajor = HTMLschoolMajor = HTMLschoolMajor.replace('%data%', school.majors[0]);
 
 
-            $('.education-entry:last').append(schoolName + schoolDegree);
-            $('.education-entry:last').append(schoolDates + schoolLocation);
+            $('.education-entry:last .section-heading').append(schoolName + schoolDegree);
+            $('.education-entry:last .section-dates').append(schoolDates);
+            $('.education-entry:last .section-location').append(schoolLocation);
+            $('.education-entry:last .section-major').append(schoolMajor);
 
-            school.majors.forEach(function(major) {
-                var schoolMajors = HTMLschoolMajor.replace('%data%', major);
-                $('.education-entry:last').append(schoolMajors);
-            });
+
+            // school.majors.forEach(function(major) {
+            //     var schoolMajors = HTMLschoolMajor.replace('%data%', major);
+
+            // });
         });
 
         // Online Courses
@@ -196,11 +203,11 @@ education = {
             var courseName = HTMLonlineTitle.replace('%data%', course.title).replace('#', course.url);
             var schoolName = HTMLonlineSchool.replace('%data%', course.school);
             var courseDates = HTMLonlineDates.replace('%data%', course.dates);
-            var courseURL = HTMLonlineURL.replace('%data%', course.url);
+            // var courseURL = HTMLonlineURL.replace('%data%', course.url);
 
             $('.online-entry:last').append(courseName + schoolName);
             $('.online-entry:last').append(courseDates);
-            $('.online-entry:last').append(courseURL);
+            // $('.online-entry:last').append(courseURL);
         });
     }
 

@@ -15,14 +15,14 @@ var HTMLskills = '<li><span class="white-text">%data%</span></li>';
 // Work
 var HTMLworkStart = '<div class="work-entry section-entry">' +
   '<table class="table">' +
-  '<thead><tr><th colspan="2" class="work-employer-role section-heading"></th></tr></thead>' +
+  '<thead><tr><th colspan="2" class="section-heading"></th></tr></thead>' +
   '<tbody>' +
-    '<tr><td>Dates:</td><td class="work-dates section-dates"></td></tr>' +
-    ' <tr><td>Location:</td><td class="work-location section-location"></td></tr>' +
-    '<tr><td>Description:</td><td class="work-description section-description"></td></tr>' +
+    '<tr><td>Dates:</td><td class="section-dates section-td"></td></tr>' +
+    '<tr><td>Location:</td><td class="section-location section-td"></td></tr>' +
+    '<tr><td>Description:</td><td class="section-description section-td"></td></tr>' +
   '</tbody>' +
   '</table></div>';
-var HTMLworkEmployer = '<h3 class="employerHeading"><a href="%link%">%data%</a>%title%</h3>';
+var HTMLworkEmployer = '<h3><a href="%link%">%data%</a>%title%</h3>';
 var HTMLworkDates = '<span class="date-text">%data%</span>';
 var HTMLworkTitle = '<span class="workTitle section-subheading"> - %data%</span>';
 var HTMLworkLocation = '<span class="location-text">%data%</span>';
@@ -32,7 +32,7 @@ var HTMLworkDescription = '<span class="workDescription">%data%</span>';
 
 // Projects
 var HTMLprojectStart = '<li class="project-entry col-lg-4 col-md-4 col-sm-6"></li>';
-var HTMLprojectTitle = '<div class="row"><a href="#"><h3 class="col-lg-12">%data%</h3></a></div>';
+var HTMLprojectTitle = '<div class="row"><a href="%link%"><h3 class="col-lg-12">%data%</h3></a></div>';
 var HTMLprojectDates = '<div class="row"><div class="date-text col-lg-12">%data%</div></div>';
 var HTMLprojectDescription = '<div class="row"><p class="col-lg-12">%data%</p></div>';
 var HTMLprojectImage = '<div class="row"><img src="%data%" class="col-lg-12"></div>';
@@ -43,24 +43,33 @@ var HTMLschoolStart = '<div class="education-entry section-entry">' +
   '<table class="table">' +
   '<thead><tr><th colspan="2" class="section-heading"></th></tr></thead>' +
   '<tbody>' +
-    '<tr><td>Graduated:</td><td class="section-dates"></td></tr>' +
-    '<tr><td>Location:</td><td class="section-location"></td></tr>' +
-    '<tr><td>Major:</td><td class="section-major"></td></tr>' +
+    '<tr><td>Graduated:</td><td class="section-dates section-td"></td></tr>' +
+    '<tr><td>Location:</td><td class="section-location section-td"></td></tr>' +
+    '<tr><td>Major:</td><td class="section-major section-td"></td></tr>' +
   '</tbody>' +
   '</table></div>';
+var HTMLschoolDegreeList = '<div class="row"><h4 class="col-lg-12 education-division-heading">Degrees</h4></div>';
 var HTMLschoolName = '<h3><a href="#">%data%</a>';
 var HTMLschoolDegree = '<span class="section-subheading"> - %data%<span></h3>';
 var HTMLschoolDates = '<span class="date-text">%data%</span>';
 var HTMLschoolLocation = '<span class="location-text">%data%</span>';
-var HTMLschoolMajor = '<span><em>%data%</em></span>';
+var HTMLschoolMajor = '<span>%data%</span>';
 
 // Online Courses
-var HTMLonlineStart = '<div class="online-entry section-entry"></div>';
-var HTMLonlineClasses = '<div class="row"><h3 class="col-lg-12">Online Classes</h3></div>';
-var HTMLonlineTitle = '<div class="row"><a href="#" class="col-lg-12">%data%';
-var HTMLonlineSchool = ' - %data%</a></div>';
-var HTMLonlineDates = '<div class="row"><div class="date-text col-lg-12">%data%</div></div>';
-var HTMLonlineURL = '<div class="row"><p class="col-lg-12"><a href="#">%data%</a></p><div>';
+var HTMLonlineStart = '<div class="online-entry section-entry">' +
+  '<table class="table">' +
+  '<thead><tr><th colspan="2" class="section-heading"></th></tr></thead>' +
+  '<tbody>' +
+    '<tr><td>Date:</td><td class="section-dates section-td"></td></tr>' +
+    '<tr><td>Program:</td><td class="section-program section-td"></td></tr>' +
+  '</tbody>' +
+  '</table></div>';
+var HTMLonlineClasses = '<div class="row"><h4 class="col-lg-12 education-division-heading online-courses-division">Online Courses</h4></div>';
+var HTMLonlineTitle = '<h3><a href="#" class="section-heading">%data%</a>';
+var HTMLonlineSchool = '<span class="section-subheading"> - %data%</span></h3>';
+var HTMLonlineDates = '<div class="date-text section-dates">%data%</div>';
+var HTMLonlineProgram = '<span>%data%</span>';
+// var HTMLonlineURL = '<p><a href="#">%data%</a></p>';
 
 // International Button
 var internationalizeButton = '<button>Internationalize</button>';
@@ -134,9 +143,6 @@ function initializeMap() {
 
     // initializes an empty array
     var locations = [];
-
-    // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
 
     // iterates through school locations and appends each location to
     // the locations array

@@ -6,7 +6,7 @@ var HTMLheaderName = '<h1 id="name"><a class="navbar-brand" href="%link%">%data%
 var HTMLheaderRole = '<span>%data%</span>';
 
 // About
-var HTMLcontactGeneric = '<li><span class="contact-category">%contact%</span><span class="contact-information">%data%</span></li>';
+var HTMLcontactGeneric = '<li><span class="contact-category">%contact%</span><span class="contact-information"><a href="%link%">%data%</a></span></li>';
 var HTMLbioPic = '<img src="%data%" class="biopic col-lg-3 col-md-3">';
 var HTMLwelcomeMsg = '<div class="row"><p class="welcome-message col-lg-12">%data%</p></div>';
 var HTMLskillsStart = '<div class="row"><h3 id="skills-h3" class="col-lg-12">Skills at a Glance:</h3></div><div class="row"><ul id="skills" class="col-lg-12"></ul></div>';

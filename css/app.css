@@ -33,6 +33,10 @@ NavBar
     margin-bottom: 20px;
  }
 
+.navbar li {
+  margin-right: 5px;
+}
+
 .navbar-default {
   background-color: #fff;
   border-bottom: none;
@@ -76,8 +80,6 @@ article {
   box-shadow: 1.5px 1.5px 3px 1.5px #303033;
 }
 
-
-
 article .articleHeading {
   background-color: #284f29;
   font-family: "Abel", sans-serif;
@@ -112,15 +114,15 @@ article a {
   /*text-align: right;*/
 }
 
-#skills li {
-  display: inline-block;
-  padding: 5px;
-}
-
 /* Use in both work and education sections */
 .section-heading {
   font-size: 19px;
   margin-top: 10px;
+}
+
+.table>thead>tr>th {
+  padding-bottom: 0;
+  border-spacing: 40px;
 }
 
 .section-subheading {
@@ -142,6 +144,13 @@ article a {
   margin-bottom: 5px;
 }
 
+.table>tbody>tr>td {
+  border: none;
+}
+
+tbody tr:first-child td{
+  padding-top: 20px;
+}
 
 
 /* About */
@@ -156,8 +165,8 @@ article a {
   display: inline-block;
   list-style: none;
   text-align: left;
-  padding-left: 60px;
-  padding-right: 45px;
+  /*padding-left: 60px;*/
+  padding-right: 100px;
 }
 
 #topContacts span {
@@ -165,8 +174,12 @@ article a {
 }
 
 #topContacts .contact-category {
-  color: #1147b2;
+  color: #333;
   font-weight: 700;
+}
+
+.contact-information {
+  color: #1147b2;
 }
 
 .welcome-message {
@@ -174,6 +187,12 @@ article a {
   color: #333;
   line-height: 28px;
 }
+
+#skills li {
+  display: inline-block;
+  padding-right: 20px;
+}
+
 
 /* Work */
 

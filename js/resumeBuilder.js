@@ -9,13 +9,25 @@ var bio, // object - About section
 bio = {
     'name': 'Timothy J. Moore',
     'role': 'Web Developer',
-    'contacts': {
-        'email': 'tim@timothymoore.me',
-        'github': 'tmo345',
-        'website': 'www.timothymoore.me'
-    },
+    'contacts': [
+        {
+            'contactType': 'Email:',
+            'contactInformation': 'tim@timothymoore.me',
+            'contactURL': 'mailto:tim@timothymoore.me'
+        },
+        {
+            'contactType': 'GitHub:',
+            'contactInformation': 'tmo345',
+            'contactURL': 'https://github.com/tmo345'
+        },
+        {
+            'contactType': 'Website:',
+            'contactInformation': 'www.timothymoore.me',
+            'contactURL': 'https://www.timothymoore.me'
+        }
+    ],
     'welcomeMessage': 'Hello, my name is Timothy Moore. I own and operate Silver Cittern Web Development, LLC in Augusta, GA. My primary focus is building websites for clients using WordPress and the Genesis Framework.',
-    'skills': ['html', 'css', 'javascript', 'jquery', 'php', 'WordPress', 'Genesis Framework'],
+    'skills': ['HTML', 'CSS', 'Javascript', 'jQuery', 'PHP', 'WordPress', 'Genesis Framework'],
     'image': 'images/Timothy_Moore.jpg',
     'display': function() {
 
@@ -31,16 +43,15 @@ bio = {
         $('.welcomeMessageSkills').append(HTMLskillsStart);
 
 
-        for (var contact in bio.contacts) {
+        this.contacts.forEach(function(contact) {
             var bioContactEntry = HTMLcontactGeneric
-                                    .replace('%contact%', contact)
-                                    .replace('%data%', this.contacts[contact]);
+                                    .replace('%contact%', contact.contactType)
+                                    .replace('%data%', contact.contactInformation)
+                                    .replace('%link%', contact.contactURL);
 
-            if (bio.contacts.hasOwnProperty(contact)) {
-                $('#topContacts').append(bioContactEntry);
-                $('#footerContacts').append(bioContactEntry);
-            }
-        }
+            $('#topContacts').append(bioContactEntry);
+            $('#footerContacts').append(bioContactEntry);
+        });
 
         this.skills.forEach(function(skill) {
             var bioSkillEntry = HTMLskills.replace('%data%', skill);

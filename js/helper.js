@@ -78,16 +78,17 @@ var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map" class="row"></div>';
 
 
+// Did not use international button for project
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
-$(document).ready(function() {
-  var iName;
-  $('button').click(function() {
-    iName = inName() || function(){};
-    $('#name').html(iName);
-  });
-});
+// $(document).ready(function() {
+//   var iName;
+//   $('button').click(function() {
+//     iName = inName() || function(){};
+//     $('#name').html(iName);
+//   });
+// });
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.

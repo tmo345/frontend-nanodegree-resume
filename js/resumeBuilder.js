@@ -1,15 +1,55 @@
-var bio, // object - About section
+var menu, // object - navbar menu
+  bio, // object - NavBar Title / About section / Footer Contacts
   work, // object - Work Experience section
   education, // object - Education section
   projects, // object - Projects section
-  menu, // object - navbar menu
-  inName; // function - internation name button
+  map; // object - Location section
 
+
+menu = {
+  'menuItems': [
+    {
+        'section': 'About',
+        'link': '#about',
+        'class': 'aboutMenu'
+    },
+    {
+        'section': 'Work',
+        'link': '#workExperience',
+        'class': 'workMenu'
+    },
+    {
+        'section': 'Projects',
+        'link': '#projects',
+        'class': 'projectsMenu'
+    },
+    {
+        'section': 'Education',
+        'link': '#education',
+        'class': 'educationMenu'
+    },
+    {
+        'section': 'Locations',
+        'link': '#mapDiv',
+        'class': 'mapMenu'
+    }
+  ],
+  'display': function() {
+    this.menuItems.forEach(function(menuItem) {
+        var menuItem = HTMLheaderMenuItem
+                        .replace('%link%', menuItem.link)
+                        .replace('%data%', menuItem.section);
+        $('.navbar-nav').append(menuItem);
+    });
+  }
+};
 
 bio = {
   'name': 'Timothy J. Moore',
-  'role': 'Web Developer',
+  // Did not use role
+  // 'role': 'Web Developer',
   'contacts': [
+  // extended from one object to array of objects for each contact in order to add urls for links
       {
         'contactType': 'Email:',
         'contactInformation': 'tim@timothymoore.me',
@@ -28,12 +68,12 @@ bio = {
   ],
   'welcomeMessage': 'Hello, my name is Timothy Moore. I own and operate Silver Cittern Web Development, LLC in Augusta, GA. My primary focus is building websites for clients using WordPress and the Genesis Framework.',
   'skills': ['HTML', 'CSS', 'Javascript', 'jQuery', 'PHP', 'WordPress', 'Genesis Framework'],
-  'image': 'images/Timothy_Moore.jpg',
+  'biopic': 'images/Timothy_Moore.jpg',
   'display': function() {
     var bioName = HTMLheaderName
                     .replace('%data%', this.name)
                     .replace('%link%', '/');
-    var bioImage = HTMLbioPic.replace('%data%', this.image);
+    var bioImage = HTMLbioPic.replace('%data%', this.biopic);
     var bioMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
 
     $('.navbar-header').append(bioName); // Append to navbar
@@ -118,8 +158,6 @@ work = {
       $('.work-entry:last .section-dates').append(workDates);
       $('.work-entry:last .section-location').append(workLocation);
       $('.work-entry:last .section-description').append(workDescription);
-
-
     });
   }
 };
@@ -220,6 +258,7 @@ projects = {
         'title': 'Horizon Eye Center',
         'dates': 'November 2015',
         'description': 'Website for ophthalmologist practice built using Genesis Framework on WordPress. Customized Altitude Pro Genesis child theme.',
+        // Changed from array of urls since my layout only involved one image per project
         'image': 'images/HorizonEyeCenter.jpg',
         'url': 'http://www.horizoneyecenter.com'
     },
@@ -253,7 +292,6 @@ projects = {
     }
   ],
   'display': function() {
-
     // Projects display in boostrap columns
     // Use bootstrap clearfix divs to align different height project columns
 
@@ -286,54 +324,16 @@ projects = {
   }
 };
 
-menu = {
-  'menuItems': [
-    {
-        'section': 'About',
-        'link': '#about',
-        'class': 'aboutMenu'
-    },
-    {
-        'section': 'Work',
-        'link': '#workExperience',
-        'class': 'workMenu'
-    },
-    {
-        'section': 'Projects',
-        'link': '#projects',
-        'class': 'projectsMenu'
-    },
-    {
-        'section': 'Education',
-        'link': '#education',
-        'class': 'educationMenu'
-    },
-    {
-        'section': 'Locations',
-        'link': '#mapDiv',
-        'class': 'mapMenu'
-    }
-  ],
+map = {
   'display': function() {
-    this.menuItems.forEach(function(menuItem) {
-        var menuItem = HTMLheaderMenuItem
-                        .replace('%link%', menuItem.link)
-                        .replace('%data%', menuItem.section);
-        $('.navbar-nav').append(menuItem);
-    });
+    $('#mapDiv .sectionMain').append(googleMap);
   }
-};
+}
 
-inName = function() {
-    var nameArray = bio.name.trim().split(' ');
-    nameArray[1] = nameArray[1].toUpperCase();
-    nameArray[0] = nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase();
-    return nameArray.join(' ');
-};
-
+// Populate sections
 menu.display();
 bio.display();
 work.display();
 projects.display();
 education.display();
-$('#mapDiv .sectionMain').append(googleMap);
+map.display();

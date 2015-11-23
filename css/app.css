@@ -8,12 +8,10 @@ body {
   background-color: #404043;
   position: relative;  /* For scrollspy plugin */
   width: 100%;
-
   padding-top: 90px; /* Offset from fixed nav */
 }
 
 p {
-  /*font-size: 16px;*/
   color: #333;
 }
 
@@ -31,7 +29,7 @@ NavBar
 .navbar {
     min-height: 60px;
     margin-bottom: 20px;
- }
+}
 
 .navbar li {
   margin-right: 5px;
@@ -98,25 +96,8 @@ article a {
   color: #1147b2;
 }
 
-.date-text {
-  /*font-style: italic;*/
-  font-size: 15px;
-  color: #444;
-  /*float: left;*/
-  /*margin-top: 12.5px;*/
-}
-
-.location-text {
-  /*font-style: italic;*/
-  font-size: 15px;
-  color: #444;
-  /*float: right;*/
-  /*text-align: right;*/
-}
-
-/* Use in both work and education sections */
-.section-heading {
-  font-size: 19px;
+.section-heading h3 a {
+  font-size: 22px;
   margin-top: 10px;
 }
 
@@ -126,17 +107,16 @@ article a {
 }
 
 .section-subheading {
-  font-size: 18px;
+  font-size: 20px;
 }
 
-.section-description {
-  font-size: 16px;
-  max-width: 600px;
+.section-td {
+  font-size: 17px;
 }
 
 .section-entry td:first-child {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 19px;
   width: 15%;
 }
 
@@ -161,7 +141,7 @@ tbody tr:first-child td{
   font-size: 18px;
 }
 
-#topContacts li {
+.contact-list li {
   display: inline-block;
   list-style: none;
   text-align: left;
@@ -169,11 +149,11 @@ tbody tr:first-child td{
   padding-right: 100px;
 }
 
-#topContacts span {
+.contact-list span {
   padding: 5px;
 }
 
-#topContacts .contact-category {
+.contact-list .contact-category {
   color: #333;
   font-weight: 700;
 }
@@ -204,8 +184,11 @@ tbody tr:first-child td{
 /* Projects */
 
 #projects img {
-  margin: 10px 0;
-  width: 100%;
+  margin: 10px 15px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 90%;
+  border: 2px solid #ccc;
 }
 
 .projectGrid {
@@ -219,6 +202,16 @@ tbody tr:first-child td{
 
 /* Education */
 
+.education-division-heading {
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 22px;
+  margin-bottom: 0;
+}
+
+.online-courses-division {
+  margin-top: 25px;
+}
 
 /* Locations - Where I've Lived and Worked */
 
@@ -240,20 +233,17 @@ tbody tr:first-child td{
   margin-bottom: 20px;
 }
 
-.orange-text {
-  color: #0b2f79;
-  color: #1147b2;
-  font-size: 20px;
-  font-weight: 700;
-}
 
 /************
 Footer
 ************/
 
 footer {
-  margin-top: 70px;
+  margin-top: 10px;
   clear: both;
+  background-color: #fff;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 1.5px -1.5px 3px 1.5px #303033;
 }
 
 #lets-connect {

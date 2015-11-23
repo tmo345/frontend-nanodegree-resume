@@ -1,0 +1,1 @@
+$(function(){$(".menu-item a").each(function(){$(this).on("click",function(t){t.preventDefault(),$("body").animate({scrollTop:$(this.hash).offset().top-85},1200)})})});
